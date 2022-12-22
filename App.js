@@ -1,5 +1,8 @@
 import * as React from 'react';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+// import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+
+
 
 import { Button, StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
@@ -20,10 +23,30 @@ export default function App() {
   return (
     <NavigationContainer>
       <Tab.Navigator>
-        <Tab.Screen name="Home" component={HomeScreen} />
-        <Tab.Screen name="Programs" component={ProgramsScreen} />
-        <Tab.Screen name="Pricing" component={PricingScreen} />
-        <Tab.Screen name="Schedule" component={ScheduleScreen} />
+        <Tab.Screen name="Home" component={HomeScreen}            //Home Screen
+          options={{
+            tabBarIcon: ({ color, size }) => (
+              <MaterialCommunityIcons name="home" color={color} size={26} />
+            ),
+          }} />
+        <Tab.Screen name="Programs" component={ProgramsScreen}            //Home Screen
+          options={{
+            tabBarIcon: ({ color, size }) => (
+              <MaterialCommunityIcons name="account-clock" color={color} size={26} />
+            ),
+          }} />
+        <Tab.Screen name="Pricing" component={PricingScreen}            //Home Screen
+          options={{
+            tabBarIcon: ({ color, size }) => (
+              <MaterialCommunityIcons name="sine-wave" color={color} size={26} />
+            ),
+          }} />
+         <Tab.Screen name="Schedule" component={ScheduleScreen}            //Home Screen
+          options={{
+            tabBarIcon: ({ color, size }) => (
+              <MaterialCommunityIcons name="calendar-today" color={color} size={26} />
+            ),
+          }} />
       </Tab.Navigator>
       {/* <Stack.Navigator initialRouteName="Home">
         <Stack.Screen name="Home" component={HomeScreen} />
