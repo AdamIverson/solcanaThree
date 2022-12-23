@@ -5,7 +5,7 @@ import { addDoc, collection } from "firebase/firestore";
 export default function HomeScreen() {
 
   const dataPress = async () => {
-    console.log('dataPress');
+    console.log('one');
     try {
       const docRef = await addDoc(collection(db, "testThree"), {
         first: "Navigation",
@@ -29,7 +29,7 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#ff854d',
     alignItems: 'center',
     justifyContent: 'center',
   },
