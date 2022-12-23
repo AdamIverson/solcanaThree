@@ -8,9 +8,9 @@ export default function HomeScreen() {
     console.log('one');
     try {
       const docRef = await addDoc(collection(db, "testThree"), {
-        first: "Navigation",
-        middle: "Stack",
-        last: "Implemented",
+        first: "Realtime",
+        middle: "Test",
+        last: "Result",
         born: 2022
       });
       console.log("Document written with ID: ", docRef.id);
