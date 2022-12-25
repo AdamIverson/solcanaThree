@@ -1,36 +1,63 @@
-import { Alert, Modal, StyleSheet, Text, Pressable, View } from 'react-native';
+import { Alert, Modal, StyleSheet, Text, TextInput, Pressable, View } from 'react-native';
 import React, { useState } from 'react';
+import { addDoc, collection } from "firebase/firestore";
+import db from '../firestoreDB/firestore';
 
 const ModalComponent = () => {
   const [modalVisible, setModalVisible] = useState(false);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+
+  const submitForm = async () => {
+    try {
+      
+      const docRef = await addDoc(collection(db, "testThree"), {
+        first: name,
+        email: email
+      });
+      console.log("Document written with ID: ", docRef.id);
+    } catch (e) {
+      console.error("Error adding document: ", e);
+    }
+    setName("");
+    setEmail("");
+    setModalVisible(!modalVisible);
+  }
   return (
     <View style={styles.centeredView}>
       <Modal
         animationType="slide"
         transparent={true}
         visible={modalVisible}
-        onRequestClose={() => {
-          Alert.alert("Modal has been closed.");
-          setModalVisible(!modalVisible);
-        }}
       >
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
             <Text style={styles.modalText}>Mooooodal</Text>
+            <TextInput
+              style={styles.textInput}
+              placeholder='name'
+              value={name}
+              onChangeText={setName} />
+            <TextInput
+              required
+              style={styles.textInput}
+              placeholder='email'
+              value={email}
+              onChangeText={setEmail} />
             <Pressable
               style={[styles.button, styles.buttonClose]}
-              onPress={() => setModalVisible(!modalVisible)}
+              onPress={submitForm}
             >
-              <Text style={styles.modalText}>close mooodal</Text>
+              <Text style={styles.modalText}>submit form</Text>
             </Pressable>
           </View>
         </View>
       </Modal>
       <Pressable
         style={[styles.button, styles.buttonOpen]}
-        onPress={() => setModalVisible(true)}
+        onPress={submitForm}
       >
-        <Text style={styles.textStyle}>Show Modal</Text>
+        <Text style={styles.textStyle}>Contact Us</Text>
       </Pressable>
     </View>
   )
@@ -79,5 +106,13 @@ const styles = StyleSheet.create({
   modalText: {
     marginBottom: 15,
     textAlign: "center"
+  },
+  textInput: {
+    width: 200,
+    borderWidth: 1,
+    borderColor: 'red',
+    margin: 5,
+    padding: 10,
+    borderRadius: 25
   }
 })
