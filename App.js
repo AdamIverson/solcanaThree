@@ -9,6 +9,7 @@ import HomeScreen from './screens/HomeScreen';
 import ProgramsScreen from './screens/ProgramsScreen';
 import PricingScreen from './screens/PricingScreen';
 import ScheduleScreen from './screens/ScheduleScreen';
+import ModalComponent from './components/Modal';
 
 const Tab = createBottomTabNavigator();
 
@@ -63,7 +64,7 @@ export default function App() {
               <MaterialCommunityIcons name="sine-wave" color={color} size={26} />
             ),
           }} />
-         <Tab.Screen name="Schedule" component={ScheduleScreen}            //Home Screen
+         <Tab.Screen name="ScheduleScreen" component={ScheduleScreen}            //Home Screen
           options={{
             headerStyle: {
               backgroundColor: '#66A0C5'

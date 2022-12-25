@@ -1,21 +1,25 @@
 import { Button, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import analytics from "@react-native-firebase/analytics";
+// import analytics from "@react-native-firebase/analytics";
+// import { firebase } from '@react-native-firebase/firestore';
+
+// firebase.initializeApp();
 
 const ProgramsScreen = () => {
 
   const analyticsTest = () => {
-    analytics().logEvent('hooray', {
-      contentType: 'text', 
-      itemId: 'Expo rocks!', 
-      method: 'facebook'
-    });
+    // analytics().logEvent('hooray', {
+    //   contentType: 'text', 
+    //   itemId: 'Expo rocks!', 
+    //   method: 'facebook'
+    // });
+    console.log("analyticsTest");
   }
 
   return (
     <View style={styles.container}>
       <Text>ProgramsScreen</Text>
-      <Button title="analtics log event" onPress={analyticsTest}></Button>
+      <Button title="analytics log event" onPress={analyticsTest}></Button>
     </View>
   )
 }

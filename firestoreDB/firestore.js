@@ -1,6 +1,9 @@
 import { initializeApp } from "firebase/app";
+import { firebase } from "@react-native-firebase/firestore";
 import { getFirestore } from "firebase/firestore";
-import { getAnalytics } from "firebase/analytics";
+// import { getAnalytics, isSupported } from "firebase/analytics";
+
+// firebase.initializeApp(firebaseConfig);
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_API_KEY,
@@ -26,6 +29,6 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-// const analytics = analytics.isSupported(getAnalytics(app));
+// const analytics = firebase.analytics.isSupported(getAnalytics());
 
 export default db;

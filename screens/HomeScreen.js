@@ -1,6 +1,7 @@
-import { Button, StyleSheet, Text, View } from 'react-native';
+import { Button, StyleSheet, Text, TextInput, View, SafeAreaView } from 'react-native';
 import db from '../firestoreDB/firestore';
 import { addDoc, collection } from "firebase/firestore";
+import ModalComponent from '../components/Modal';
 
 export default function HomeScreen() {
 
@@ -22,6 +23,13 @@ export default function HomeScreen() {
     <View style={styles.container}>
       <Text>solcana three</Text>
       <Button title="dataPress" onPress={dataPress}></Button>
+      <ModalComponent />
+      <SafeAreaView>
+      <TextInput
+        style={styles.input}
+        placeholder='textInput'
+      />
+      </SafeAreaView>
     </View>
   );
 }
@@ -32,5 +40,12 @@ const styles = StyleSheet.create({
     backgroundColor: '#ff854d',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  input: {
+    height: 40,
+    margin: 12,
+    borderWidth: 1,
+    padding: 10,
+    backgroundColor: 'white'
   },
 });
