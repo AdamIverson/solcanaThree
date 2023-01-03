@@ -1,5 +1,6 @@
 import { Button, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
+import ModalComponent from '../components/Modal'
 // import analytics from "@react-native-firebase/analytics";
 // import { firebase } from '@react-native-firebase/firestore';
 
@@ -20,6 +21,7 @@ const ProgramsScreen = () => {
     <View style={styles.container}>
       <Text>ProgramsScreen</Text>
       <Button title="analytics log event" onPress={analyticsTest}></Button>
+      <ModalComponent />
     </View>
   )
 }

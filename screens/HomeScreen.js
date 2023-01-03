@@ -8,10 +8,10 @@ export default function HomeScreen() {
   const dataPress = async () => {
     console.log('one');
     try {
-      const docRef = await addDoc(collection(db, "testThree"), {
-        first: "Realtime",
-        middle: "Test",
-        last: "Result",
+      const docRef = await addDoc(collection(db, "testFour"), {
+        first: "Solcana",
+        middle: "onethousand",
+        last: "Connected",
         born: 2022
       });
       console.log("Document written with ID: ", docRef.id);
@@ -23,12 +23,12 @@ export default function HomeScreen() {
     <View style={styles.container}>
       <Text>solcana three</Text>
       <Button title="dataPress" onPress={dataPress}></Button>
-      <ModalComponent />
-      <SafeAreaView>
+      <SafeAreaView style={styles.container}>
       <TextInput
         style={styles.input}
         placeholder='textInput'
       />
+      <ModalComponent />
       </SafeAreaView>
     </View>
   );

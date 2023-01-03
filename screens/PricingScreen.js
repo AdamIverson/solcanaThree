@@ -2,6 +2,7 @@ import { Button, StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 import db from '../firestoreDB/firestore';
 import { collection, getDocs, getDoc, doc } from "firebase/firestore";
+import ModalComponent from '../components/Modal';
 
 const PricingScreen = () => {
 
@@ -30,6 +31,7 @@ const PricingScreen = () => {
       <Text>PricingScreen</Text>
       <Button title='get all docs' onPress={getAllDocs}></Button>
       <Button title='get one doc' onPress={getOneDoc}></Button>
+      <ModalComponent />
     </View>
   )
 }

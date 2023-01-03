@@ -32,7 +32,7 @@ const ModalComponent = () => {
       >
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
-            <Text style={styles.modalText}>Mooooodal</Text>
+            <Text style={styles.modalText}>It's So Nice To Meet You!</Text>
             <TextInput
               style={styles.textInput}
               placeholder='name'
@@ -54,7 +54,7 @@ const ModalComponent = () => {
         </View>
       </Modal>
       <Pressable
-        style={[styles.button, styles.buttonOpen]}
+        style={[styles.button, styles.buttonOpen, styles.contact]}
         onPress={submitForm}
       >
         <Text style={styles.textStyle}>Contact Us</Text>
@@ -66,6 +66,11 @@ const ModalComponent = () => {
 export default ModalComponent
 
 const styles = StyleSheet.create({
+  contact: {
+    position: "absolute",
+    bottom: 100,
+    left: 5
+  },
   centeredView: {
     flex: 1,
     justifyContent: "center",

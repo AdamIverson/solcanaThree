@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { firebase } from "@react-native-firebase/firestore";
 import { getFirestore } from "firebase/firestore";
-// import { getAnalytics, isSupported } from "firebase/analytics";
+import { getAnalytics} from "firebase/analytics";
 
 // firebase.initializeApp(firebaseConfig);
 
@@ -29,6 +29,6 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-// const analytics = firebase.analytics.isSupported(getAnalytics());
+// const analytics = getAnalytics();
 
 export default db;
