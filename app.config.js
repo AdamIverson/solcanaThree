@@ -36,9 +36,9 @@ export default {
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF",
-        "package": "com.solcanaThree.app"
+        "backgroundColor": "#FFFFFF"
       },
+      "package": "com.solcanaThree.app",
       "googleServicesFile": "./GoogleService-Info.plist"
     },
     "web": {
