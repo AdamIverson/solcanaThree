@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>121609065421-0ht4l7lo31hv01rvcm4sjmenbfkjvemb.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.121609065421-0ht4l7lo31hv01rvcm4sjmenbfkjvemb</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAGYz-NnHRKUTj9OWyNxkwH3ZSmce7gdFQ</string>
+	<key>GCM_SENDER_ID</key>
+	<string>121609065421</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.solcanaFive.app</string>
+	<key>PROJECT_ID</key>
+	<string>solcanafive</string>
+	<key>STORAGE_BUCKET</key>
+	<string>solcanafive.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:121609065421:ios:eb6e5a056399c392c92a84</string>
+</dict>
+</plist>
