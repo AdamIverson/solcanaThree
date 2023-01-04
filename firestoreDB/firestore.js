@@ -1,9 +1,7 @@
 import { initializeApp } from "firebase/app";
-import { firebase } from "@react-native-firebase/firestore";
+// import { firebase } from "@react-native-firebase/firestore";
 import { getFirestore } from "firebase/firestore";
-import { getAnalytics} from "firebase/analytics";
-
-// firebase.initializeApp(firebaseConfig);
+// import { getAnalytics} from "firebase/analytics";
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_API_KEY,
@@ -27,8 +25,13 @@ const firebaseConfig = {
 //   measurementId: "G-N8NYK35FXQ",
 // };
 
+// if(!firebase.app.length) {
+//   firebase.initializeApp(firebaseConfig)
+// }
+
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-// const analytics = getAnalytics();
+// const analytics = getAnalytics(app);
 
+// export { firebase, analytics }
 export default db;

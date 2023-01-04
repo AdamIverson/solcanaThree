@@ -1,6 +1,7 @@
 import { Button, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import ModalComponent from '../components/Modal'
+
 // import analytics from "@react-native-firebase/analytics";
 // import { firebase } from '@react-native-firebase/firestore';
 
