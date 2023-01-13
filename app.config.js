@@ -14,6 +14,11 @@ export default {
     },
     "plugins": [
       [
+        "@react-native-firebase/app",
+        // "@react-native-firebase/analytics",
+        "@react-native-firebase/auth",
+      ],
+      [
         "expo-build-properties",
         {
           "ios": {
