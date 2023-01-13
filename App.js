@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 import { StyleSheet } from 'react-native';

@@ -1,5 +1,5 @@
 import { Button, StyleSheet, Text, TextInput, View, SafeAreaView } from 'react-native';
-import db from '../firestoreDB/firestore';
+import { db } from '../firestoreDB/firestore';
 import { addDoc, collection } from "firebase/firestore";
 import ModalComponent from '../components/Modal';
 

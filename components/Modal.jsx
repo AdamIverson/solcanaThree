@@ -1,7 +1,7 @@
 import { Alert, Modal, StyleSheet, Text, TextInput, Pressable, View } from 'react-native';
 import React, { useState } from 'react';
 import { addDoc, collection } from "firebase/firestore";
-import db from '../firestoreDB/firestore';
+import { db } from '../firestoreDB/firestore';
 
 const ModalComponent = () => {
   const [modalVisible, setModalVisible] = useState(false);

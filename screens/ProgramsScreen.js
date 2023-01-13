@@ -1,21 +1,19 @@
 import { Button, StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 import ModalComponent from '../components/Modal';
-// import { firebaseAnalytics } from '../firestoreDB/firestore';
-import { getAnalytics, logEvent } from 'firebase/analytics';
+import { firebaseAnalytics, db } from '../firestoreDB/firestore';
+import { getAnalytics, isSupported, logEvent } from 'firebase/analytics';
 import analytics from "@react-native-firebase/analytics";
-// import { firebase } from '@react-native-firebase/firestore';
-
-// firebase.initializeApp();
 
 const ProgramsScreen = () => {
-  const analyticsFB = getAnalytics();
-
+  // const FBAnalytics = isSupported().then(yes => yes ? getAnalytics(app) : null);
+  // const firebaseAnalytics = getAnalytics();
+  const fireAnalytics = getAnalytics();
   const analyticsTest = () => {
     // logEvent(analytics, 'notification_received');
     analytics().logEvent('hooray', {
-      // contentType: 'text', 
-      // itemId: 'Expo rocks!', 
+      contentType: 'text', 
+      itemId: 'Expo rocks!', 
       method: 'facebook'
     });
     console.log("analyticsTest");
