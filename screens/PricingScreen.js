@@ -1,6 +1,6 @@
 import { Button, StyleSheet, Text, View } from 'react-native';
 import React from 'react';
-import db from '../firestoreDB/firestore';
+import { db } from '../firestoreDB/firestore';
 import { collection, getDocs, getDoc, doc } from "firebase/firestore";
 import ModalComponent from '../components/Modal';
 

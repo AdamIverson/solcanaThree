@@ -1,20 +1,23 @@
-import { Button, StyleSheet, Text, View } from 'react-native'
-import React from 'react'
-import ModalComponent from '../components/Modal'
-
-// import analytics from "@react-native-firebase/analytics";
+import { Button, StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import ModalComponent from '../components/Modal';
+// import { firebaseAnalytics } from '../firestoreDB/firestore';
+import { getAnalytics, logEvent } from 'firebase/analytics';
+import analytics from "@react-native-firebase/analytics";
 // import { firebase } from '@react-native-firebase/firestore';
 
 // firebase.initializeApp();
 
 const ProgramsScreen = () => {
+  const analyticsFB = getAnalytics();
 
   const analyticsTest = () => {
-    // analytics().logEvent('hooray', {
-    //   contentType: 'text', 
-    //   itemId: 'Expo rocks!', 
-    //   method: 'facebook'
-    // });
+    // logEvent(analytics, 'notification_received');
+    analytics().logEvent('hooray', {
+      // contentType: 'text', 
+      // itemId: 'Expo rocks!', 
+      method: 'facebook'
+    });
     console.log("analyticsTest");
   }
 
