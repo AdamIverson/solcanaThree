@@ -16,16 +16,6 @@ const firebaseConfig = {
   measurementId: process.env.REACT_APP_MEASUREMENT_ID,
 };
 
-// const firebaseConfig = {
-//   apiKey: "AIzaSyDLm3m3g4v5oJtWWctU0MQnTjuniaNRC6g",
-//   authDomain: "solcanathree.firebaseapp.com",
-//   databaseURL: "https://solcanathree-default-rtdb.firebaseio.com",
-//   projectId: "solcanathree",
-//   storageBucket: "solcanathree.appspot.com",
-//   messagingSenderId: 483534570383,
-//   appId: "1:483534570383:web:6365caaf7a7241275201fa",
-//   measurementId: "G-N8NYK35FXQ",
-// };
 
 // if(!firebase.app.length) {
 //   firebase.initializeApp(firebaseConfig)
