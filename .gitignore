@@ -13,6 +13,7 @@ web-build/
 GoogleService-Info.plist
 google-services.json
 debug.keystore
+app.json
 # macOS
 .DS_Store
 
