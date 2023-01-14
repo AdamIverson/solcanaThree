@@ -10,7 +10,7 @@ build/
 local.properties
 *.iml
 *.hprof
-google-services.json
+../app/google-services.json
 
 # BUCK
 buck-out/
