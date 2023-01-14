@@ -11,7 +11,7 @@ const ModalComponent = () => {
   const submitForm = async () => {
     try {
       
-      const docRef = await addDoc(collection(db, "testThree"), {
+      const docRef = await addDoc(collection(db, "contacts"), {
         first: name,
         email: email
       });
