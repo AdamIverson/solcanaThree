@@ -8,6 +8,10 @@ const ModalComponent = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
 
+  const openModal = () => {
+    setModalVisible(!modalVisible);
+  }
+
   const submitForm = async () => {
     try {
       
@@ -55,7 +59,7 @@ const ModalComponent = () => {
       </Modal>
       <Pressable
         style={[styles.button, styles.buttonOpen, styles.contact]}
-        onPress={submitForm}
+        onPress={openModal}
       >
         <Text style={styles.textStyle}>Contact Us</Text>
       </Pressable>
