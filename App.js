@@ -1,27 +1,61 @@
 import React from 'react';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
-import { StyleSheet } from 'react-native';
+import { Text, StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import { createStackNavigator } from '@react-navigation/stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import HomeScreen from './screens/HomeScreen';
 import ProgramsScreen from './screens/ProgramsScreen';
 import PricingScreen from './screens/PricingScreen';
 import ScheduleScreen from './screens/ScheduleScreen';
-import ModalComponent from './components/Modal';
 
+import ModalComponent from './components/Modal';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+
+const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
+
+// function HomeStackScreen({ navigation }) {
+//   return (
+//     <Stack.Navigator>
+//       <Stack.Screen
+//         name="Home"
+//         component={HomeScreen}
+//          />
+//     </Stack.Navigator>
+//   )
+// }
+
+function phoneCall() {
+  alert('phone call time');
+}
 
 
 export default function App() {
   return (
     <NavigationContainer>
       <Tab.Navigator
-        screenOptions={({ route }) => ({
+        screenOptions={({ route, navigation }) => ({
+          headerLeft: () => (
+            <TouchableOpacity
+              onPress={phoneCall}
+            >
+              <Text>(612) 808-0252</Text>
+            </TouchableOpacity>
+          ),
+          headerRight: () => (
+            <TouchableOpacity
+              onPress={() => alert('maps goes here')}
+            >
+              <Text>1915 E 22nd St</Text>
+            </TouchableOpacity>
+          ),
           headerStyle: {
-            backgroundColor: '#66A0C5'
+            backgroundColor: '#66A0C5',
           },
           tabBarStyle: {
             height: 70,
@@ -38,9 +72,6 @@ export default function App() {
       >
         <Tab.Screen name="Home" component={HomeScreen}            //Home Screen
           options={{
-            // headerStyle: {
-            //   backgroundColor: '#66A0C5'
-            // },
             headerTintColor: '#fff',
             tabBarIcon: ({ color, size }) => (
               <MaterialCommunityIcons name="home" color={color} size={26} />
@@ -48,9 +79,6 @@ export default function App() {
           }} />
         <Tab.Screen name="Programs" component={ProgramsScreen}            //Home Screen
           options={{
-            // headerStyle: {
-            //   backgroundColor: '#66A0C5'
-            // },
             headerTintColor: '#fff',
             tabBarIcon: ({ color, size }) => (
               <MaterialCommunityIcons name="plus-minus-variant" color={color} size={26} />
@@ -58,9 +86,6 @@ export default function App() {
           }} />
         <Tab.Screen name="Pricing" component={PricingScreen}            //Home Screen
           options={{
-            // headerStyle: {
-            //   backgroundColor: '#66A0C5'
-            // },
             headerTintColor: '#fff',
             title: 'Pricing',
             tabBarIcon: ({ color, size }) => (
@@ -69,9 +94,6 @@ export default function App() {
           }} />
         <Tab.Screen name="ScheduleScreen" component={ScheduleScreen}            //Home Screen
           options={{
-            // headerStyle: {
-            //   backgroundColor: '#66A0C5'
-            // },
             headerTintColor: '#fff',
             tabBarIcon: ({ color, size }) => (
               <MaterialCommunityIcons name="calendar-today" color={color} size={26} />

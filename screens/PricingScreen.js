@@ -8,7 +8,7 @@ const PricingScreen = () => {
 
   const getOneDoc = async () => {
     console.log('getOneDoc');
-    const docRef = doc(db, "testThree", "athlete1");
+    const docRef = doc(db, "contacts", "nUxAjDl4rDqMGKzFWqx0");
     const docSnap = await getDoc(docRef);
 
     if (docSnap.exists()) {

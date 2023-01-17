@@ -7,6 +7,8 @@ const ModalComponent = () => {
   const [modalVisible, setModalVisible] = useState(false);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [message, setMessage] = useState("");
 
   const openModal = () => {
     setModalVisible(!modalVisible);
@@ -14,10 +16,12 @@ const ModalComponent = () => {
 
   const submitForm = async () => {
     try {
-      
+
       const docRef = await addDoc(collection(db, "contacts"), {
         first: name,
-        email: email
+        phone: phone,
+        email: email,
+        message: message
       });
       console.log("Document written with ID: ", docRef.id);
     } catch (e) {
@@ -43,11 +47,21 @@ const ModalComponent = () => {
               value={name}
               onChangeText={setName} />
             <TextInput
+              style={styles.textInput}
+              placeholder='phone'
+              value={phone}
+              onChangeText={setPhone} />
+            <TextInput
               required
               style={styles.textInput}
               placeholder='email'
               value={email}
               onChangeText={setEmail} />
+            <TextInput
+              style={styles.textInput}
+              placeholder='message'
+              value={message}
+              onChangeText={setMessage} />
             <Pressable
               style={[styles.button, styles.buttonClose]}
               onPress={submitForm}
