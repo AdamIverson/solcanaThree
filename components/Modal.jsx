@@ -1,4 +1,12 @@
-import { Alert, Modal, StyleSheet, Text, TextInput, Pressable, View } from 'react-native';
+import {
+  Modal,
+  StyleSheet,
+  Text,
+  TextInput,
+  Pressable,
+  View,
+  TouchableWithoutFeedback
+} from 'react-native';
 import React, { useState } from 'react';
 import { addDoc, collection } from "firebase/firestore";
 import { db } from '../firestoreDB/firestore';
@@ -38,38 +46,42 @@ const ModalComponent = () => {
         transparent={true}
         visible={modalVisible}
       >
-        <View style={styles.centeredView}>
-          <View style={styles.modalView}>
-            <Text style={styles.modalText}>It's So Nice To Meet You!</Text>
-            <TextInput
-              style={styles.textInput}
-              placeholder='name'
-              value={name}
-              onChangeText={setName} />
-            <TextInput
-              style={styles.textInput}
-              placeholder='phone'
-              value={phone}
-              onChangeText={setPhone} />
-            <TextInput
-              required
-              style={styles.textInput}
-              placeholder='email'
-              value={email}
-              onChangeText={setEmail} />
-            <TextInput
-              style={styles.textInput}
-              placeholder='message'
-              value={message}
-              onChangeText={setMessage} />
-            <Pressable
-              style={[styles.button, styles.buttonClose]}
-              onPress={submitForm}
-            >
-              <Text style={styles.modalText}>submit form</Text>
-            </Pressable>
+        <TouchableWithoutFeedback
+          onPress={openModal}
+        >
+          <View style={styles.centeredView}>
+            <View style={styles.modalView}>
+              <Text style={styles.modalText}>It's So Nice To Meet You!</Text>
+              <TextInput
+                style={styles.textInput}
+                placeholder='name'
+                value={name}
+                onChangeText={setName} />
+              <TextInput
+                style={styles.textInput}
+                placeholder='phone'
+                value={phone}
+                onChangeText={setPhone} />
+              <TextInput
+                required
+                style={styles.textInput}
+                placeholder='email'
+                value={email}
+                onChangeText={setEmail} />
+              <TextInput
+                style={styles.textInput}
+                placeholder='message'
+                value={message}
+                onChangeText={setMessage} />
+              <Pressable
+                style={[styles.button, styles.buttonClose]}
+                onPress={submitForm}
+              >
+                <Text style={styles.modalText}>submit form</Text>
+              </Pressable>
+            </View>
           </View>
-        </View>
+        </TouchableWithoutFeedback>
       </Modal>
       <Pressable
         style={[styles.button, styles.buttonOpen, styles.contact]}
