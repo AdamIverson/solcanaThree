@@ -4,16 +4,32 @@ import ModalComponent from '../components/Modal';
 import { firebaseAnalytics, db } from '../firestoreDB/firestore';
 import { getAnalytics, isSupported, logEvent } from 'firebase/analytics';
 import analytics from "@react-native-firebase/analytics";
+import { createStackNavigator } from '@react-navigation/stack';
 
-const ProgramsScreen = () => {
+const ProgramsScreen = ({ navigation }) => {
   // const FBAnalytics = isSupported().then(yes => yes ? getAnalytics(app) : null);
   // const firebaseAnalytics = getAnalytics();
   const fireAnalytics = getAnalytics();
+  const testStack = createStackNavigator();
+
+  const quizComponent = () => {
+    return (
+      <testStack.Navigator>
+        <testStack.Screen
+          name='QuizScreen'
+        />
+      </testStack.Navigator>
+    )
+  }
+
+  const testNavigate = () => {
+    navigation.navigate('QuizScreen')
+  }
   const analyticsTest = () => {
     // logEvent(analytics, 'notification_received');
     analytics().logEvent('hooray', {
-      contentType: 'text', 
-      itemId: 'Expo rocks!', 
+      contentType: 'text',
+      itemId: 'Expo rocks!',
       method: 'facebook'
     });
     console.log("analyticsTest");
@@ -22,7 +38,7 @@ const ProgramsScreen = () => {
   return (
     <View style={styles.container}>
       <Text>ProgramsScreen</Text>
-      <Button title="analytics log event" onPress={analyticsTest}></Button>
+      <Button title="analytics log event" onPress={testNavigate}></Button>
       <ModalComponent />
     </View>
   )
