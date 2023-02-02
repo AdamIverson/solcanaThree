@@ -2,8 +2,6 @@ import { StyleSheet, Text, View } from 'react-native'
 import React from 'react';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { NavigationContainer } from '@react-navigation/native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 
 import HomeScreen from '../screens/HomeScreen';
 import ProgramsScreen from '../screens/ProgramsScreen';
@@ -18,7 +16,6 @@ const Main = () => {
   }
 
   return (
-    // <NavigationContainer>
     <Tab.Navigator
       screenOptions={({ route, navigation }) => ({
         headerShown: false,
@@ -37,7 +34,7 @@ const Main = () => {
     >
       <Tab.Screen name="Home" component={HomeScreen}            //Home Screen
         options={{
-          // headerTintColor: '#fff',
+          headerTintColor: '#fff',
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="home" color={color} size={26} />
           ),
@@ -51,7 +48,7 @@ const Main = () => {
         }} />
       <Tab.Screen name="Pricing" component={PricingScreen}            //Home Screen
         options={{
-          // headerTintColor: '#fff',
+          headerTintColor: '#fff',
           title: 'Pricing',
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="sine-wave" color={color} size={26} />
@@ -65,7 +62,6 @@ const Main = () => {
           ),
         }} />
     </Tab.Navigator>
-    // </NavigationContainer>
   )
 }
 

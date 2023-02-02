@@ -5,6 +5,7 @@ import { firebaseAnalytics, db } from '../firestoreDB/firestore';
 import { getAnalytics, isSupported, logEvent } from 'firebase/analytics';
 import analytics from "@react-native-firebase/analytics";
 import { createStackNavigator } from '@react-navigation/stack';
+import QuizScreen from './QuizScreen';
 
 const ProgramsScreen = ({ navigation }) => {
   // const FBAnalytics = isSupported().then(yes => yes ? getAnalytics(app) : null);
@@ -12,21 +13,21 @@ const ProgramsScreen = ({ navigation }) => {
   const fireAnalytics = getAnalytics();
   const testStack = createStackNavigator();
 
-  const quizComponent = () => {
-    return (
-      <testStack.Navigator>
-        <testStack.Screen
-          name='QuizScreen'
-        />
-      </testStack.Navigator>
-    )
-  }
+  // const quizComponent = () => {
+  //   return (
+  //     <testStack.Navigator>
+  //       <testStack.Screen
+  //         name='QuizScreen'
+  //       />
+  //     </testStack.Navigator>
+  //   )
+  // }
 
-  const testNavigate = () => {
-    navigation.navigate('QuizScreen')
-  }
+  // const testNavigate = () => {
+  //   navigation.navigate('QuizScreen')
+  // }
+
   const analyticsTest = () => {
-    // logEvent(analytics, 'notification_received');
     analytics().logEvent('hooray', {
       contentType: 'text',
       itemId: 'Expo rocks!',
@@ -38,7 +39,8 @@ const ProgramsScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Text>ProgramsScreen</Text>
-      <Button title="analytics log event" onPress={testNavigate}></Button>
+      <Button title="Nav to Quiz Screen" onPress={() => navigation.push('QuizScreen')}></Button>
+      <Button title="analytics log event" onPress={analyticsTest}></Button>
       <ModalComponent />
     </View>
   )

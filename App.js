@@ -1,18 +1,19 @@
 import React from 'react';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
+// import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 import { Text, StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+// import { createStackNavigator } from '@react-navigation/stack';
+// import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-import Main from './components/Main'
-import HomeScreen from './screens/HomeScreen';
-import ProgramsScreen from './screens/ProgramsScreen';
-import PricingScreen from './screens/PricingScreen';
-import ScheduleScreen from './screens/ScheduleScreen';
+import Main from './components/Main';
+import QuizScreen from './screens/QuizScreen';
+// import HomeScreen from './screens/HomeScreen';
+// import ProgramsScreen from './screens/ProgramsScreen';
+// import PricingScreen from './screens/PricingScreen';
+// import ScheduleScreen from './screens/ScheduleScreen';
 
-import ModalComponent from './components/Modal';
+// import ModalComponent from './components/Modal';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
@@ -72,6 +73,7 @@ export default function App() {
       })}
       >
         <Stack.Screen name='Main' component={Main} />
+        <Stack.Screen name='QuizScreen' component={QuizScreen} />
       </Stack.Navigator>
     </NavigationContainer>
     // <NavigationContainer>
