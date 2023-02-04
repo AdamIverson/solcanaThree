@@ -13,20 +13,6 @@ const ProgramsScreen = ({ navigation }) => {
   const fireAnalytics = getAnalytics();
   const testStack = createStackNavigator();
 
-  // const quizComponent = () => {
-  //   return (
-  //     <testStack.Navigator>
-  //       <testStack.Screen
-  //         name='QuizScreen'
-  //       />
-  //     </testStack.Navigator>
-  //   )
-  // }
-
-  // const testNavigate = () => {
-  //   navigation.navigate('QuizScreen')
-  // }
-
   const analyticsTest = () => {
     analytics().logEvent('hooray', {
       contentType: 'text',
@@ -39,7 +25,9 @@ const ProgramsScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Text>ProgramsScreen</Text>
-      <Button title="Nav to Quiz Screen" onPress={() => navigation.push('QuizScreen')}></Button>
+      <Button title="Nav to Quiz Screen" onPress={() => navigation.push('QuizScreen', {
+        title: 'holy cats'
+      })}></Button>
       <Button title="analytics log event" onPress={analyticsTest}></Button>
       <ModalComponent />
     </View>

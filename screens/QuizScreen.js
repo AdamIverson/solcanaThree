@@ -1,11 +1,23 @@
-import { Button, StyleSheet, Text, View } from 'react-native'
+import { Button, StyleSheet, Text, View, TextInput } from 'react-native'
 import React from 'react'
 
 const QuizScreen = ({ navigation }) => {
   return (
     <View>
-      <Text>QuizScreen</Text>
       <Button title="go back" onPress={() =>navigation.goBack()}></Button>
+      <Text>QuizScreen</Text>
+      <View>
+        <TextInput placeholder='First Name'/>
+        <TextInput placeholder='Last Name'/>
+      </View>
+      <View>
+        <TextInput placeholder='Pronouns'/>
+        <TextInput placeholder='Phone'/>
+      </View>
+      <View>
+        <TextInput placeholder='Email'/>
+        {/* <Picker placeholder='Dropdown' /> */}
+      </View>
     </View>
   )
 }

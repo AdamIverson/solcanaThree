@@ -42,16 +42,17 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator
       screenOptions={({ route, navigation }) => ({
+        headerTitle: route.name,
         headerLeft: () => (
           <TouchableOpacity
-            onPress={phoneCall}
+          onPress={phoneCall}
           >
             <Text>(612) 808-0252</Text>
           </TouchableOpacity>
         ),
         headerRight: () => (
           <TouchableOpacity
-            onPress={() => alert('maps goes here')}
+          onPress={() => alert('maps goes here')}
           >
             <Text>1915 E 22nd St</Text>
           </TouchableOpacity>
@@ -72,75 +73,12 @@ export default function App() {
         tabBarInactiveTintColor: '#fff'
       })}
       >
-        <Stack.Screen name='Main' component={Main} />
+        <Stack.Screen name='Main' component={Main}
+        options={({ route }) => ({ headerTitle: route.name })}
+        />
         <Stack.Screen name='QuizScreen' component={QuizScreen} />
       </Stack.Navigator>
     </NavigationContainer>
-    // <NavigationContainer>
-    
-    //   <Tab.Navigator
-    //     screenOptions={({ route, navigation }) => ({
-    //       headerLeft: () => (
-    //         <TouchableOpacity
-    //           onPress={phoneCall}
-    //         >
-    //           <Text>(612) 808-0252</Text>
-    //         </TouchableOpacity>
-    //       ),
-    //       headerRight: () => (
-    //         <TouchableOpacity
-    //           onPress={() => alert('maps goes here')}
-    //         >
-    //           <Text>1915 E 22nd St</Text>
-    //         </TouchableOpacity>
-    //       ),
-    //       headerStyle: {
-    //         backgroundColor: '#66A0C5',
-    //       },
-    //       tabBarStyle: {
-    //         height: 70,
-    //         paddingHorizontal: 5,
-    //         paddingTop: 10,
-    //         paddingBottom: 15,
-    //         backgroundColor: '#66A0C5',
-    //         position: 'absolute',
-    //         borderTopWidth: 0,
-    //       },
-    //       tabBarActiveTintColor: '#ff854d',
-    //       tabBarInactiveTintColor: '#fff'
-    //     })}
-    //   >
-    //     <Tab.Screen name="Home" component={HomeScreen}            //Home Screen
-    //       options={{
-    //         headerTintColor: '#fff',
-    //         tabBarIcon: ({ color, size }) => (
-    //           <MaterialCommunityIcons name="home" color={color} size={26} />
-    //         ),
-    //       }} />
-    //     <Tab.Screen name="Programs" component={ProgramsScreen}            //Home Screen
-    //       options={{
-    //         headerTintColor: '#fff',
-    //         tabBarIcon: ({ color, size }) => (
-    //           <MaterialCommunityIcons name="plus-minus-variant" color={color} size={26} />
-    //         ),
-    //       }} />
-    //     <Tab.Screen name="Pricing" component={PricingScreen}            //Home Screen
-    //       options={{
-    //         headerTintColor: '#fff',
-    //         title: 'Pricing',
-    //         tabBarIcon: ({ color, size }) => (
-    //           <MaterialCommunityIcons name="sine-wave" color={color} size={26} />
-    //         ),
-    //       }} />
-    //     <Tab.Screen name="ScheduleScreen" component={ScheduleScreen}            //Home Screen
-    //       options={{
-    //         headerTintColor: '#fff',
-    //         tabBarIcon: ({ color, size }) => (
-    //           <MaterialCommunityIcons name="calendar-today" color={color} size={26} />
-    //         ),
-    //       }} />
-    //   </Tab.Navigator>
-    // </NavigationContainer>
   );
 }
 

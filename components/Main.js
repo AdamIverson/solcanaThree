@@ -8,7 +8,7 @@ import ProgramsScreen from '../screens/ProgramsScreen';
 import PricingScreen from '../screens/PricingScreen';
 import ScheduleScreen from '../screens/ScheduleScreen';
 
-const Main = () => {
+const Main = ({ route }) => {
   const Tab = createBottomTabNavigator();
 
   function phoneCall() {
@@ -32,21 +32,24 @@ const Main = () => {
         tabBarInactiveTintColor: '#fff'
       })}
     >
-      <Tab.Screen name="Home" component={HomeScreen}            //Home Screen
+      <Tab.Screen 
+        name="Home" 
+        component={HomeScreen}
         options={{
+          title: 'Home',
           headerTintColor: '#fff',
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="home" color={color} size={26} />
           ),
         }} />
-      <Tab.Screen name="Programs" component={ProgramsScreen}            //Home Screen
+      <Tab.Screen name="Programs" component={ProgramsScreen}
         options={{
           headerTintColor: '#fff',
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="plus-minus-variant" color={color} size={26} />
           ),
         }} />
-      <Tab.Screen name="Pricing" component={PricingScreen}            //Home Screen
+      <Tab.Screen name="Pricing" component={PricingScreen}
         options={{
           headerTintColor: '#fff',
           title: 'Pricing',
@@ -54,7 +57,7 @@ const Main = () => {
             <MaterialCommunityIcons name="sine-wave" color={color} size={26} />
           ),
         }} />
-      <Tab.Screen name="ScheduleScreen" component={ScheduleScreen}            //Home Screen
+      <Tab.Screen name="ScheduleScreen" component={ScheduleScreen}
         options={{
           headerTintColor: '#fff',
           tabBarIcon: ({ color, size }) => (
