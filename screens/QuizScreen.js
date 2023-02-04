@@ -84,6 +84,15 @@ const QuizScreen = ({ navigation }) => {
         <BouncyCheckbox text="Losing weight for medical reasons"/>
       </View>
       <View>
+        <Text>Is there anything else you'd like us to know?</Text>
+        <TextInput 
+          placeholder='additional info'
+          multiline={true}
+          numberOfLines={4}
+          style={{ height:100, textAlignVertical: 'top',}}
+          ></TextInput>
+      </View>
+      <View>
         <TouchableOpacity>
           <Text>Submit</Text>
         </TouchableOpacity>
