@@ -6,9 +6,22 @@ const QuizScreen = ({ navigation }) => {
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState(null);
   const [items, setItems] = useState([
-    {label: 'Apple', value: 'apple'},
-    {label: 'Banana', value: 'banana'}
+    {label: 'Livestream from home', value: 'stream'},
+    {label: 'In the Gym', value: 'gym'},
+    {label: 'Mix of both', value: 'both'}
   ]);
+  const [items2, setItems2] = useState([
+    {label: 'Personal Training', value: 'personal'}, 
+    {label:'Small Group Classes', value: 'group'},
+    {label:'Mix of Both', value: 'mix'}
+  ]);
+  const [items3, setItems3] = useState([
+    {label: 'Not at all', value: 'none'}, 
+    {label:'On and off', value: 'meh'},
+    {label:'Regularly', value: 'regular'},
+    {label: 'All the time', value: 'much'}
+  ]);
+
   return (
     <View>
       <View>
@@ -29,12 +42,33 @@ const QuizScreen = ({ navigation }) => {
       <View>
         <TextInput placeholder='Email' />
         <DropDownPicker
+          placeholder='workout preference?'
           open={open}
           value={value}
           items={items}
           setOpen={setOpen}
           setValue={setValue}
           setItems={setItems}
+        />
+      </View>
+      <View>
+        <DropDownPicker 
+        placeholder='Personal or Group Training?'
+        open={open}
+        value={value}
+        items={items2}
+        setOpen={setOpen}
+        setValue={setValue}
+        setItems={setItems}
+        />
+        <DropDownPicker 
+        placeholder='Workout Frequency?'
+        open={open}
+        value={value}
+        items={items3}
+        setOpen={setOpen}
+        setValue={setValue}
+        setItems={setItems}
         />
       </View>
       <View>
