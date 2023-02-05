@@ -24,10 +24,6 @@ export default function HomeScreen() {
       <Text>solcana three</Text>
       <Button title="dataPress" onPress={dataPress}></Button>
       <SafeAreaView style={styles.container}>
-      <TextInput
-        style={styles.input}
-        placeholder='textInput'
-      />
       <ModalComponent />
       </SafeAreaView>
     </View>
@@ -40,12 +36,5 @@ const styles = StyleSheet.create({
     backgroundColor: '#ff854d',
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  input: {
-    height: 40,
-    margin: 12,
-    borderWidth: 1,
-    padding: 10,
-    backgroundColor: 'white'
   },
 });
