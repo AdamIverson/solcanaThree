@@ -30,26 +30,17 @@
 
 ![Screen Shot](images/screenshot.png)
 
-There are many great README templates available on GitHub, however, I didn't find one that really suit my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need.
-
-Here's why:
-
-* Your time should be focused on creating something amazing. A project that solves a problem and helps others
-* You shouldn't be doing the same tasks over and over like creating a README from scratch
-* You should element DRY principles to the rest of your life :smile:
-
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue.
-
-A list of commonly used resources that I find helpful are listed in the acknowledgements.
+I am building this app in support of the gym I call home, Solcana Fitness. They are aware that I am building this, but it was my idea and the work is pro bono. The first level of work is focused on recreating solcanafitness.com, alllowing for prospective members to connect with the gym. This will likely be limited in use, because who downloads an app for a gym to which they do not belong, but it's how I'm learning React Native. After I get everything wired up with Firebase on the backend for the contact forms, I will build in Google Auth to partition content exclusive to gym members.
 
 ## Built With
 
-This section should list any major frameworks that you built your project using. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
+Expo, React Native, Firebase, Firestore, Google Analytics 4
 
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+This is, in all respects, a work in progress.
+
+Welcome to the end of my progress filling out this readme template I found online. brb
 
 ### Prerequisites
 
