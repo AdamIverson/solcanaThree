@@ -30,7 +30,7 @@
 
 ![Screen Shot](images/screenshot.png)
 
-I am building this app in support of the gym I call home, Solcana Fitness. They are aware that I am building this, but it was my idea and the work is pro bono. The first level of work is focused on recreating solcanafitness.com, alllowing for prospective members to connect with the gym. This will likely be limited in use, because who downloads an app for a gym to which they do not belong, but it's how I'm learning React Native. After I get everything wired up with Firebase on the backend for the contact forms, I will build in Google Auth to partition content exclusive to gym members.
+I am building this app in support of the gym I call home, Solcana Fitness. They are aware that I am building this, but it was my idea and the work is pro bono. The first level of work is focused on recreating solcanafitness.com, alllowing for prospective members to connect with the gym. This will likely be limited in use, because who downloads an app for a gym to which they do not belong, but it's how I'm learning React Native. After I get everything wired up with Firebase on the backend for the contact forms, I will implement Google Auth to partition content exclusive to gym members.
 
 ## Built With
 
