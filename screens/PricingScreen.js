@@ -20,7 +20,7 @@ const PricingScreen = () => {
   }
 
   const getAllDocs = async () => {
-    const querySnapshot = await getDocs(collection(db, "testThree"));
+    const querySnapshot = await getDocs(collection(db, "contacts"));
     querySnapshot.forEach((doc) => {
       console.log(`${doc.id} => ${doc.data()}`);
     });

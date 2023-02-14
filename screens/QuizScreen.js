@@ -75,7 +75,11 @@ const QuizScreen = ({ navigation }) => {
       </View>
       <View>
           <Text>Do any of the following apply to you?</Text>
-        <BouncyCheckbox text="Prenatal"/>
+        <BouncyCheckbox 
+          textStyle={{textDecorationLine: "none",}}
+          text="Prenatal"
+          // style={styles.checkbox}
+        />
         <BouncyCheckbox text="Postpartum"/>
         <BouncyCheckbox text="Managing chronic pain"/>
         <BouncyCheckbox text="Recently started hormone therapy"/>
@@ -104,4 +108,11 @@ const QuizScreen = ({ navigation }) => {
 
 export default QuizScreen
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  checkbox: {
+    textColor: 'red',
+    textStyle: {
+      textDecorationLine: "none",
+    },
+  }
+})
