@@ -1,7 +1,6 @@
 import { Button, StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native'
 import React, { useState } from 'react'
 import DropDownPicker from 'react-native-dropdown-picker'
-import BouncyCheckbox from 'react-native-bouncy-checkbox'
 import Modal from '../components/Modal'
 import { addDoc, collection } from "firebase/firestore";
 import { db } from '../firestoreDB/firestore';
@@ -128,7 +127,7 @@ const QuizScreen = ({ navigation }) => {
       </View>
       <View>
           <Text>Do any of the following apply to you?</Text>
-        <BouncyCheckbox 
+        {/* <BouncyCheckbox 
           textStyle={{textDecorationLine: "none",}}
           text="Prenatal"
           // style={styles.checkbox}
@@ -138,7 +137,7 @@ const QuizScreen = ({ navigation }) => {
         <BouncyCheckbox text="Recently started hormone therapy"/>
         <BouncyCheckbox text="Undergoing top surgery (or have in the recent past"/>
         <BouncyCheckbox text="Recovering from an injury"/>
-        <BouncyCheckbox text="Losing weight for medical reasons"/>
+        <BouncyCheckbox text="Losing weight for medical reasons"/> */}
       </View>
       <View>
         <Text>Is there anything else you'd like us to know?</Text>
