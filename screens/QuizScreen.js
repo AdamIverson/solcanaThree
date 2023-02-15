@@ -3,26 +3,55 @@ import React, { useState } from 'react'
 import DropDownPicker from 'react-native-dropdown-picker'
 import BouncyCheckbox from 'react-native-bouncy-checkbox'
 import Modal from '../components/Modal'
+import { addDoc, collection } from "firebase/firestore";
+import { db } from '../firestoreDB/firestore';
 
 const QuizScreen = ({ navigation }) => {
   const [open, setOpen] = useState(false);
-  const [value, setValue] = useState(null);
-  const [items, setItems] = useState([
+
+// create state for form
+  const [firstName, onChangeFirstName] = useState();
+  const [lastName, onChangeLastName] = useState();
+  const [pronouns, onChangePronouns] = useState();
+  const [phone, onChangePhone] = useState();
+  const [email, onChangeEmail] = useState();
+  const [checkbox, onChangeCheckbox] = useState([]);
+  const [additionalInfo, onChangeAdditionalInfo] = useState('');
+
+  const [preference, onChangePreference] = useState([
     {label: 'Livestream from home', value: 'stream'},
     {label: 'In the Gym', value: 'gym'},
     {label: 'Mix of both', value: 'both'}
   ]);
-  const [items2, setItems2] = useState([
+  const [training, onChangeTraining] = useState([
     {label: 'Personal Training', value: 'personal'}, 
     {label:'Small Group Classes', value: 'group'},
     {label:'Mix of Both', value: 'mix'}
   ]);
-  const [items3, setItems3] = useState([
+  const [frequency, onChangeFrequency] = useState([
     {label: 'Not at all', value: 'none'}, 
     {label:'On and off', value: 'meh'},
     {label:'Regularly', value: 'regular'},
     {label: 'All the time', value: 'much'}
   ]);
+
+  const submitForm = async () => {
+    try {
+
+      const docRef = await addDoc(collection(db, "contacts"), {
+        firstName: firstName,
+        lastName: lastName,
+        pronouns: pronouns,
+        phone: phone,
+        email: email,
+        message: additionalInfo
+      });
+      console.log("Document written with ID: ", docRef.id);
+    } catch (e) {
+      console.error("Error adding document: ", e);
+    }
+    navigation.goBack();
+  }
 
   return (
     <View>
@@ -34,43 +63,67 @@ const QuizScreen = ({ navigation }) => {
         <Text>Take the quiz to find out</Text>
       </View>
       <View>
-        <TextInput placeholder='First Name' />
-        <TextInput placeholder='Last Name' />
+        <TextInput
+          placeholder='First Name'
+          value={firstName}
+          // onChange={onChangeFirstName}
+          onChangeText={onChangeFirstName}
+          />
+        <TextInput 
+          placeholder='Last Name'
+          value={lastName}
+          onChangeText={onChangeLastName}
+          />
       </View>
       <View>
-        <TextInput placeholder='Pronouns' />
-        <TextInput placeholder='Phone' />
+        <TextInput 
+          placeholder='Pronouns'
+          value={pronouns}
+          onChangeText={onChangePronouns}
+          />
+        <TextInput 
+          placeholder='Phone'
+          value={phone}
+          onChangeText={onChangePhone}
+        />
       </View>
       <View>
-        <TextInput placeholder='Email' />
+        <TextInput 
+          placeholder='Email'
+          value={email}
+          onChangeText={onChangeEmail}
+          />
         <DropDownPicker
           placeholder='workout preference?'
           open={open}
-          value={value}
-          items={items}
+          value={preference.value}
+          items={preference}
+          onChangeText={onChangePreference}
           setOpen={setOpen}
-          setValue={setValue}
-          setItems={setItems}
+          setValue={onChangePreference}
+          setItems={onChangePreference}
         />
       </View>
       <View>
         <DropDownPicker 
         placeholder='Personal or Group Training?'
         open={open}
-        value={value}
-        items={items2}
+        value={training.value}
+        items={training}
+        onChangeText={onChangeTraining}
         setOpen={setOpen}
-        setValue={setValue}
-        setItems={setItems}
+        setItems={onChangeTraining}
+        setValue={onChangeTraining}
         />
         <DropDownPicker 
         placeholder='Workout Frequency?'
         open={open}
-        value={value}
-        items={items3}
+        value={frequency.value}
+        items={frequency}
         setOpen={setOpen}
-        setValue={setValue}
-        setItems={setItems}
+        onChangeText={onChangeFrequency}
+        setValue={onChangeFrequency}
+        setItems={onChangeFrequency}
         />
       </View>
       <View>
@@ -91,6 +144,8 @@ const QuizScreen = ({ navigation }) => {
         <Text>Is there anything else you'd like us to know?</Text>
         <TextInput 
           placeholder='additional info'
+          value={additionalInfo}
+          onChangeText={onChangeAdditionalInfo}
           multiline={true}
           numberOfLines={4}
           style={{ height:100, textAlignVertical: 'top',}}
@@ -98,7 +153,11 @@ const QuizScreen = ({ navigation }) => {
       </View>
       <View>
         <TouchableOpacity>
-          <Text>Submit</Text>
+          <Text
+            onPress={submitForm}
+          >
+          Submit
+          </Text>
         </TouchableOpacity>
       </View>
       {/* <Modal /> */}

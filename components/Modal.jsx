@@ -26,7 +26,7 @@ const ModalComponent = () => {
     try {
 
       const docRef = await addDoc(collection(db, "contacts"), {
-        first: name,
+        firstName: name,
         phone: phone,
         email: email,
         message: message
