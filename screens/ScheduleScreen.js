@@ -1,11 +1,13 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import ModalComponent from '../components/Modal'
+import CheckBox from '../components/CheckBox'
 
 const ScheduleScreen = () => {
   return (
     <View style={styles.container}>
       <Text>ScheduleScreen</Text>
+      <CheckBox />
       <ModalComponent />
     </View>
   )
