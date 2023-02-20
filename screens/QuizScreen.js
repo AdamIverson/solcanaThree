@@ -4,7 +4,7 @@ import DropDownPicker from 'react-native-dropdown-picker'
 import Modal from '../components/Modal'
 import { addDoc, collection } from "firebase/firestore";
 import { db } from '../firestoreDB/firestore';
-import CheckBox from '../components/CheckBox';
+import CheckBoxList from '../components/CheckBoxList';
 
 const QuizScreen = ({ navigation }) => {
   const [open, setOpen] = useState(false);
@@ -140,7 +140,7 @@ const QuizScreen = ({ navigation }) => {
       <View
         style={styles.checkbox}
       >
-        <CheckBox />
+        <CheckBoxList />
       </View>
       <View>
         <Text>Is there anything else you'd like us to know?</Text>

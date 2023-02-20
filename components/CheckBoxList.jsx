@@ -2,7 +2,7 @@ import { StyleSheet, Text, View, FlatList } from 'react-native'
 import React, { useState } from 'react'
 import Checkbox from 'expo-checkbox'
 
-const CheckBox = () => {
+const CheckBoxList = () => {
   const [checkbox, onChangeCheckbox] = useState([
     { id: 1, name: 'prenatal', isChecked: false },
     { id: 2, name: 'postpartum', isChecked: true },
@@ -14,7 +14,7 @@ const CheckBox = () => {
   ]);
 
   const Item = ({ name }) => {
-    const [toggleCheckBox, setToggleCheckBox] = useState(false);
+    const [toggleCheckBoxList, setToggleCheckBoxList] = useState(false);
 
     return (
       <View
@@ -22,8 +22,8 @@ const CheckBox = () => {
       >
         <Checkbox
           disabled={false}
-          value={toggleCheckBox}
-          onValueChange={(newValue) => setToggleCheckBox(newValue)}
+          value={toggleCheckBoxList}
+          onValueChange={(newValue) => setToggleCheckBoxList(newValue)}
         />
         <Text
           style={styles.text}
@@ -52,7 +52,7 @@ const CheckBox = () => {
   )
 }
 
-export default CheckBox
+export default CheckBoxList
 
 const styles = StyleSheet.create({
   container: {
