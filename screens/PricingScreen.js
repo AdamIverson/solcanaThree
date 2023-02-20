@@ -1,8 +1,9 @@
-import { Button, StyleSheet, Text, View } from 'react-native';
+import { Button, StyleSheet, Text, View, Pressable } from 'react-native';
 import React from 'react';
 import { db } from '../firestoreDB/firestore';
 import { collection, getDocs, getDoc, doc } from "firebase/firestore";
 import ModalComponent from '../components/Modal';
+import { A } from '@expo/html-elements'
 
 const PricingScreen = () => {
 
@@ -29,8 +30,11 @@ const PricingScreen = () => {
   return (
     <View style={styles.container}>
       <Text>PricingScreen</Text>
-      <Button title='get all docs' onPress={getAllDocs}></Button>
-      <Button title='get one doc' onPress={getOneDoc}></Button>
+      <A href="https://docs.google.com/forms/d/e/1FAIpQLSdbCD-QJpZxEowWEtrbjHTZq2w5ZJVllc0tboff3mebKrL6sw/viewform">
+        Apply for Sliding Scale
+      </A>
+      {/* <Button title='get all docs' onPress={getAllDocs}></Button>
+      <Button title='get one doc' onPress={getOneDoc}></Button> */}
       <ModalComponent />
     </View>
   )

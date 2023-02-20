@@ -46,9 +46,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   logo: {
-    flex: 1
-  },
-  image: {
     flex: 1,
-  }
+    margin: 25,
+  },
 });
