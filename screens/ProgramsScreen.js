@@ -1,4 +1,4 @@
-import { Button, StyleSheet, Text, View } from 'react-native';
+import { Button, StyleSheet, Text, View, Image } from 'react-native';
 import React from 'react';
 import ModalComponent from '../components/Modal';
 import { firebaseAnalytics, db } from '../firestoreDB/firestore';
@@ -24,11 +24,16 @@ const ProgramsScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Text>ProgramsScreen</Text>
+      <View style={styles.image}>
+        <Image
+          style={styles.image}
+          source={require('../assets/programs.png')}
+        />
+      </View>
       <Button title="Nav to Quiz Screen" onPress={() => navigation.push('QuizScreen', {
         title: 'holy cats'
       })}></Button>
-      <Button title="analytics log event" onPress={analyticsTest}></Button>
+      {/* <Button title="analytics log event" onPress={analyticsTest}></Button> */}
       <ModalComponent />
     </View>
   )
@@ -43,4 +48,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  image: {
+    flex: 1,
+    width: 400,
+    height: 200,
+  }
 })

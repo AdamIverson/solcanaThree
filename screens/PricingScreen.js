@@ -1,4 +1,4 @@
-import { Button, StyleSheet, Text, View, Pressable } from 'react-native';
+import { Button, StyleSheet, Text, View, Pressable, Image } from 'react-native';
 import React from 'react';
 import { db } from '../firestoreDB/firestore';
 import { collection, getDocs, getDoc, doc } from "firebase/firestore";
@@ -30,6 +30,12 @@ const PricingScreen = () => {
   return (
     <View style={styles.container}>
       <Text>PricingScreen</Text>
+      <View style={styles.image}>
+        <Image
+          style={styles.image}
+          source={require('../assets/pricing.png')}
+        />
+      </View>
       <A href="https://docs.google.com/forms/d/e/1FAIpQLSdbCD-QJpZxEowWEtrbjHTZq2w5ZJVllc0tboff3mebKrL6sw/viewform">
         Apply for Sliding Scale
       </A>
@@ -49,4 +55,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  image: {
+    flex: 1,
+    width: 400,
+    height: 200,
+  }
 })
