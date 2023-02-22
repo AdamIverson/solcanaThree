@@ -57,7 +57,7 @@ const Main = ({ route }) => {
             <MaterialCommunityIcons name="sine-wave" color={color} size={26} />
           ),
         }} />
-      <Tab.Screen name="ScheduleScreen" component={ScheduleScreen}
+      <Tab.Screen name="Schedule" component={ScheduleScreen}
         options={{
           headerTintColor: '#fff',
           tabBarIcon: ({ color, size }) => (
