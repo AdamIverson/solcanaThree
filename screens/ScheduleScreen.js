@@ -119,6 +119,7 @@ const ScheduleScreen = () => {
           </View>
         </View>
       </View>
+      <ModalComponent />
     </SafeAreaView>
   )
 }
