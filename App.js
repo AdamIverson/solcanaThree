@@ -16,6 +16,7 @@ import QuizScreen from './screens/QuizScreen';
 // import ModalComponent from './components/Modal';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import EmPowerScreen from './screens/EmPowerScreen';
 
 const Stack = createNativeStackNavigator();
 // const Tab = createBottomTabNavigator();
@@ -77,6 +78,7 @@ export default function App() {
         options={({ route }) => ({ headerTitle: route.name })}
         />
         <Stack.Screen name='QuizScreen' component={QuizScreen} />
+        <Stack.Screen name='EmPowerScreen' component={EmPowerScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

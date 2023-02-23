@@ -7,6 +7,7 @@ import HomeScreen from '../screens/HomeScreen';
 import ProgramsScreen from '../screens/ProgramsScreen';
 import PricingScreen from '../screens/PricingScreen';
 import ScheduleScreen from '../screens/ScheduleScreen';
+import EmPowerScreen from '../screens/EmPowerScreen';
 
 const Main = ({ route }) => {
   const Tab = createBottomTabNavigator();
