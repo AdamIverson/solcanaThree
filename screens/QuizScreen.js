@@ -1,14 +1,26 @@
 import { Button, StyleSheet, Text, View, TextInput, TouchableOpacity, FlatList, Pressable } from 'react-native'
 import React, { useState } from 'react'
-import DropDownPicker from 'react-native-dropdown-picker'
-import Modal from '../components/Modal'
 import { addDoc, collection } from "firebase/firestore";
 import { db } from '../firestoreDB/firestore';
 import CheckBoxList from '../components/CheckBoxList';
+import DropdownComponent from '../components/DropdownComponent';
+
+const workoutPreference = [
+  { label: 'Livestream from home', value: 'stream' },
+  { label: 'In the Gym', value: 'gym' },
+  { label: 'Mix of both', value: 'both' }
+];
+
+const trainingPreference = [
+  { label: 'Personal Training', value: 'personal' },
+  { label: 'Small Group Classes', value: 'group' },
+  { label: 'Mix of Both', value: 'mix' }
+]
 
 const QuizScreen = ({ navigation }) => {
-  const [open, setOpen] = useState(false);
-  const [isChecked, setChecked] = useState(false);
+  const [preferenceOpen, setPreferenceOpen] = useState('');
+  const [trainingOpen, setTrainingOpen] = useState('');
+  const [frequencyOpen, setFrequencyOpen] = useState('')
 
   // create state for form
   const [firstName, onChangeFirstName] = useState();
@@ -18,26 +30,22 @@ const QuizScreen = ({ navigation }) => {
   const [email, onChangeEmail] = useState();
   const [additionalInfo, onChangeAdditionalInfo] = useState('');
 
-  const [preference, onChangePreference] = useState([
-    { label: 'Livestream from home', value: 'stream' },
-    { label: 'In the Gym', value: 'gym' },
-    { label: 'Mix of both', value: 'both' }
-  ]);
   const [training, onChangeTraining] = useState([
     { label: 'Personal Training', value: 'personal' },
     { label: 'Small Group Classes', value: 'group' },
     { label: 'Mix of Both', value: 'mix' }
   ]);
+
   const [frequency, onChangeFrequency] = useState([
     { label: 'Not at all', value: 'none' },
     { label: 'On and off', value: 'meh' },
     { label: 'Regularly', value: 'regular' },
-    { label: 'All the time', value: 'much' }
+    { label: 'All the time', value: 'much' },
   ]);
 
   const [checkbox, onChangeCheckbox] = useState([
     { id: 1, txt: 'prenatal', isChecked: false },
-    { id: 2, txt: 'postpartum', isChecked: true },
+    { id: 2, txt: 'postpartum', isChecked: false },
     { id: 3, txt: 'managing chronic pain', isChecked: false },
     { id: 4, txt: 'recently started hormone therapy', isChecked: false },
     { id: 5, txt: 'undergoing top surgery (or have in the recent past)', isChecked: false },
@@ -53,6 +61,9 @@ const QuizScreen = ({ navigation }) => {
         pronouns: pronouns,
         phone: phone,
         email: email,
+        preference: preference,
+        training: training,
+        frequency: frequency,
         message: additionalInfo
       });
       console.log("Document written with ID: ", docRef.id);
@@ -103,40 +114,12 @@ const QuizScreen = ({ navigation }) => {
           onChangeText={onChangeEmail}
         />
       </View>
-      <View>
-        <DropDownPicker
-          placeholder='workout preference?'
-          open={open}
-          value={preference.value}
-          items={preference}
-          onChangeText={onChangePreference}
-          setOpen={setOpen}
-          setValue={onChangePreference}
-          setItems={onChangePreference}
-        />
+      <View style={{ flex: 1, width: 400 }}>
+        <DropdownComponent choice={workoutPreference} />
+        <DropdownComponent choice={trainingPreference} />
       </View>
-      <View>
-        <DropDownPicker
-          placeholder='Personal or Group Training?'
-          open={open}
-          value={training.value}
-          items={training}
-          onChangeText={onChangeTraining}
-          setOpen={setOpen}
-          setItems={onChangeTraining}
-          setValue={onChangeTraining}
-        />
-        <DropDownPicker
-          placeholder='Workout Frequency?'
-          open={open}
-          value={frequency.value}
-          items={frequency}
-          setOpen={setOpen}
-          onChangeText={onChangeFrequency}
-          setValue={onChangeFrequency}
-          setItems={onChangeFrequency}
-        />
-      </View>
+      {/* <View>
+      </View> */}
       <View
         style={styles.checkbox}
       >
@@ -162,7 +145,6 @@ const QuizScreen = ({ navigation }) => {
           </Text>
         </TouchableOpacity>
       </View>
-      {/* <Modal /> */}
     </View>
   )
 }
@@ -191,5 +173,11 @@ const styles = StyleSheet.create({
   submit: {
     marginLeft: 25,
     marginBottom: 50,
-  }
+  },
+  dropdown: {
+    margin: 16,
+    height: 50,
+    borderBottomColor: 'gray',
+    borderBottomWidth: 0.5,
+  },
 })
