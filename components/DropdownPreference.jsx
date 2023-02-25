@@ -2,19 +2,13 @@ import { StyleSheet, Text, View } from 'react-native'
 import React, { useState } from 'react'
 import { Dropdown } from 'react-native-element-dropdown';
 
+const workoutPreference = [
+  { label: 'Livestream from home', value: 'stream' },
+  { label: 'In the Gym', value: 'gym' },
+  { label: 'Mix of both', value: 'both' }
+];
 
-// const data = [
-//   { label: 'Item 1', value: '1' },
-//   { label: 'Item 2', value: '2' },
-//   { label: 'Item 3', value: '3' },
-//   { label: 'Item 4', value: '4' },
-//   { label: 'Item 5', value: '5' },
-//   { label: 'Item 6', value: '6' },
-//   { label: 'Item 7', value: '7' },
-//   { label: 'Item 8', value: '8' },
-// ];
-
-const DropdownComponent = ( { choice } ) => {
+const DropdownPreference = () => {
   const [value, setValue] = useState(null);
   const [isFocus, setIsFocus] = useState(false);
 
@@ -22,7 +16,7 @@ const DropdownComponent = ( { choice } ) => {
     if (value || isFocus) {
       return (
         <Text style={[styles.label, isFocus && { color: 'blue' }]}>
-          What is your {choice.label}
+          How do you like to workout?
         </Text>
       );
     }
@@ -38,8 +32,7 @@ const DropdownComponent = ( { choice } ) => {
         selectedTextStyle={styles.selectedTextStyle}
         inputSearchStyle={styles.inputSearchStyle}
         iconStyle={styles.iconStyle}
-        data={choice}
-        search
+        data={workoutPreference}
         maxHeight={300}
         labelField="label"
         valueField="value"
@@ -65,7 +58,7 @@ const DropdownComponent = ( { choice } ) => {
   );
 };
 
-export default DropdownComponent
+export default DropdownPreference
 
 const styles = StyleSheet.create({
   container: {

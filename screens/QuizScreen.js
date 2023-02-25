@@ -3,19 +3,9 @@ import React, { useState } from 'react'
 import { addDoc, collection } from "firebase/firestore";
 import { db } from '../firestoreDB/firestore';
 import CheckBoxList from '../components/CheckBoxList';
-import DropdownComponent from '../components/DropdownComponent';
-
-const workoutPreference = [
-  { label: 'Livestream from home', value: 'stream' },
-  { label: 'In the Gym', value: 'gym' },
-  { label: 'Mix of both', value: 'both' }
-];
-
-const trainingPreference = [
-  { label: 'Personal Training', value: 'personal' },
-  { label: 'Small Group Classes', value: 'group' },
-  { label: 'Mix of Both', value: 'mix' }
-]
+import DropdownPreference from '../components/DropdownPreference';
+import DropdownTraining from '../components/DropdownTraining';
+import FrequencyDropdown from '../components/DropdownFrequency';
 
 const QuizScreen = ({ navigation }) => {
   const [preferenceOpen, setPreferenceOpen] = useState('');
@@ -115,8 +105,10 @@ const QuizScreen = ({ navigation }) => {
         />
       </View>
       <View style={{ flex: 1, width: 400 }}>
-        <DropdownComponent choice={workoutPreference} />
-        <DropdownComponent choice={trainingPreference} />
+        <DropdownPreference />
+        <DropdownTraining />
+        <FrequencyDropdown />
+        {/* <DropdownComponent choice={trainingPreference} /> */}
       </View>
       {/* <View>
       </View> */}
