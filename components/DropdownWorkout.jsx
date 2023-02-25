@@ -8,8 +8,7 @@ const workoutPreference = [
   { label: 'Mix of both', value: 'both' }
 ];
 
-const DropdownWorkout = ({workout}) => {
-  console.log('workout:', workout);
+const DropdownWorkout = ({ workout }) => {
   const [value, setValue] = useState(null);
   const [isFocus, setIsFocus] = useState(false);
 
@@ -43,7 +42,6 @@ const DropdownWorkout = ({workout}) => {
         onChange={item => {
           setWorkout(item.value);
           // updateWorkout(item.value);
-          console.log('item.value:', item.value);
           setIsFocus(false);
         }}
         // renderLeftIcon={() => (

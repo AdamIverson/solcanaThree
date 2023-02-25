@@ -17,7 +17,7 @@ const QuizScreen = ({ navigation }) => {
   const [email, onChangeEmail] = useState();
   const [additionalInfo, onChangeAdditionalInfo] = useState('');
   const workoutState = [workout, setWorkout ] = useState('');
-  const [training, setTraining ] = useState('');
+  const trainingState = [training, setTraining ] = useState('');
   const [frequency, setFrequency] = useState('');
   // const [training, onChangeTraining] = useState([
   //   { label: 'Personal Training', value: 'personal' },
@@ -51,8 +51,8 @@ const QuizScreen = ({ navigation }) => {
         // pronouns: pronouns,
         // phone: phone,
         // email: email,
-        workout: workout
-        // training: training,
+        workout: workout,
+        training: training,
         // frequency: frequency,
         // message: additionalInfo
       });
@@ -110,8 +110,8 @@ const QuizScreen = ({ navigation }) => {
       </View> */}
       <View style={{ flex: 1, width: 400 }}>
         <DropdownWorkout workout={workout}/>
-        {/* <DropdownTraining props={training}/>
-        <FrequencyDropdown props={frequency}/> */}
+        <DropdownTraining training={training}/>
+        {/* <FrequencyDropdown props={frequency}/> */}
         {/* <DropdownComponent choice={trainingPreference} /> */}
       </View>
       {/* <View>
