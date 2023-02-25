@@ -2,14 +2,14 @@ import { StyleSheet, Text, View } from 'react-native'
 import React, { useState } from 'react'
 import { Dropdown } from 'react-native-element-dropdown';
 
-const frequency = [
+const frequencyList = [
   { label: 'Not at all', value: 'none' },
   { label: 'On and off', value: 'meh' },
   { label: 'Regularly', value: 'regular' },
   { label: 'All the time', value: 'much' },
 ];
 
-const FrequencyDropdown = () => {
+const FrequencyDropdown = ({ frequency }) => {
   const [value, setValue] = useState(null);
   const [isFocus, setIsFocus] = useState(false);
 
@@ -33,13 +33,13 @@ const FrequencyDropdown = () => {
         selectedTextStyle={styles.selectedTextStyle}
         inputSearchStyle={styles.inputSearchStyle}
         iconStyle={styles.iconStyle}
-        data={frequency}
+        data={frequencyList}
         maxHeight={300}
         labelField="label"
         valueField="value"
         placeholder={!isFocus ? 'How do you like to workout?' : '...'}
         searchPlaceholder="Search..."
-        value={value}
+        value={frequency}
         onFocus={() => setIsFocus(true)}
         onBlur={() => setIsFocus(false)}
         onChange={item => {

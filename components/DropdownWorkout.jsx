@@ -8,7 +8,8 @@ const workoutPreference = [
   { label: 'Mix of both', value: 'both' }
 ];
 
-const DropdownPreference = () => {
+const DropdownWorkout = ({workout}) => {
+  console.log('workout:', workout);
   const [value, setValue] = useState(null);
   const [isFocus, setIsFocus] = useState(false);
 
@@ -16,7 +17,7 @@ const DropdownPreference = () => {
     if (value || isFocus) {
       return (
         <Text style={[styles.label, isFocus && { color: 'blue' }]}>
-          How do you like to workout?
+          Where do you like to workout?
         </Text>
       );
     }
@@ -30,19 +31,19 @@ const DropdownPreference = () => {
         style={[styles.dropdown, isFocus && { borderColor: 'blue' }]}
         placeholderStyle={styles.placeholderStyle}
         selectedTextStyle={styles.selectedTextStyle}
-        inputSearchStyle={styles.inputSearchStyle}
         iconStyle={styles.iconStyle}
         data={workoutPreference}
         maxHeight={300}
         labelField="label"
         valueField="value"
-        placeholder={!isFocus ? 'How do you like to workout?' : '...'}
-        searchPlaceholder="Search..."
-        value={value}
+        placeholder={!isFocus ? 'Where do you like to workout?' : '...'}
+        value={workout}
         onFocus={() => setIsFocus(true)}
         onBlur={() => setIsFocus(false)}
         onChange={item => {
-          setValue(item.value);
+          setWorkout(item.value);
+          // updateWorkout(item.value);
+          console.log('item.value:', item.value);
           setIsFocus(false);
         }}
         // renderLeftIcon={() => (
@@ -58,7 +59,7 @@ const DropdownPreference = () => {
   );
 };
 
-export default DropdownPreference
+export default DropdownWorkout
 
 const styles = StyleSheet.create({
   container: {

@@ -3,14 +3,11 @@ import React, { useState } from 'react'
 import { addDoc, collection } from "firebase/firestore";
 import { db } from '../firestoreDB/firestore';
 import CheckBoxList from '../components/CheckBoxList';
-import DropdownPreference from '../components/DropdownPreference';
+import DropdownWorkout from '../components/DropdownWorkout';
 import DropdownTraining from '../components/DropdownTraining';
 import FrequencyDropdown from '../components/DropdownFrequency';
 
 const QuizScreen = ({ navigation }) => {
-  const [preferenceOpen, setPreferenceOpen] = useState('');
-  const [trainingOpen, setTrainingOpen] = useState('');
-  const [frequencyOpen, setFrequencyOpen] = useState('')
 
   // create state for form
   const [firstName, onChangeFirstName] = useState();
@@ -19,19 +16,21 @@ const QuizScreen = ({ navigation }) => {
   const [phone, onChangePhone] = useState();
   const [email, onChangeEmail] = useState();
   const [additionalInfo, onChangeAdditionalInfo] = useState('');
+  const workoutState = [workout, setWorkout ] = useState('');
+  const [training, setTraining ] = useState('');
+  const [frequency, setFrequency] = useState('');
+  // const [training, onChangeTraining] = useState([
+  //   { label: 'Personal Training', value: 'personal' },
+  //   { label: 'Small Group Classes', value: 'group' },
+  //   { label: 'Mix of Both', value: 'mix' }
+  // ]);
 
-  const [training, onChangeTraining] = useState([
-    { label: 'Personal Training', value: 'personal' },
-    { label: 'Small Group Classes', value: 'group' },
-    { label: 'Mix of Both', value: 'mix' }
-  ]);
-
-  const [frequency, onChangeFrequency] = useState([
-    { label: 'Not at all', value: 'none' },
-    { label: 'On and off', value: 'meh' },
-    { label: 'Regularly', value: 'regular' },
-    { label: 'All the time', value: 'much' },
-  ]);
+  // const [frequency, onChangeFrequency] = useState([
+  //   { label: 'Not at all', value: 'none' },
+  //   { label: 'On and off', value: 'meh' },
+  //   { label: 'Regularly', value: 'regular' },
+  //   { label: 'All the time', value: 'much' },
+  // ]);
 
   const [checkbox, onChangeCheckbox] = useState([
     { id: 1, txt: 'prenatal', isChecked: false },
@@ -43,18 +42,19 @@ const QuizScreen = ({ navigation }) => {
     { id: 7, txt: 'losing weight for medical reasons', isChecked: false }
   ]);
 
-  const submitForm = async () => {
+  const submitForm = async ({workoutState}) => {
+    console.log("workout:", workout);
     try {
       const docRef = await addDoc(collection(db, "contacts"), {
-        firstName: firstName,
-        lastName: lastName,
-        pronouns: pronouns,
-        phone: phone,
-        email: email,
-        preference: preference,
-        training: training,
-        frequency: frequency,
-        message: additionalInfo
+        // firstName: firstName,
+        // lastName: lastName,
+        // pronouns: pronouns,
+        // phone: phone,
+        // email: email,
+        workout: workout
+        // training: training,
+        // frequency: frequency,
+        // message: additionalInfo
       });
       console.log("Document written with ID: ", docRef.id);
     } catch (e) {
@@ -63,9 +63,13 @@ const QuizScreen = ({ navigation }) => {
     navigation.goBack();
   }
 
+  const updateWorkout = (value) => {
+    setWorkout(value);
+  }
+
   return (
     <View style={styles.container}>
-      <View>
+      {/* <View>
         <Button title="go back" onPress={() => navigation.goBack()}></Button>
       </View>
       <View>
@@ -103,11 +107,11 @@ const QuizScreen = ({ navigation }) => {
           value={email}
           onChangeText={onChangeEmail}
         />
-      </View>
+      </View> */}
       <View style={{ flex: 1, width: 400 }}>
-        <DropdownPreference />
-        <DropdownTraining />
-        <FrequencyDropdown />
+        <DropdownWorkout workout={workout}/>
+        {/* <DropdownTraining props={training}/>
+        <FrequencyDropdown props={frequency}/> */}
         {/* <DropdownComponent choice={trainingPreference} /> */}
       </View>
       {/* <View>
