@@ -9,7 +9,7 @@ const frequencyList = [
   { label: 'All the time', value: 'much' },
 ];
 
-const FrequencyDropdown = ({ frequency }) => {
+const DropdownFrequency = ({ frequency }) => {
   const [value, setValue] = useState(null);
   const [isFocus, setIsFocus] = useState(false);
 
@@ -17,7 +17,7 @@ const FrequencyDropdown = ({ frequency }) => {
     if (value || isFocus) {
       return (
         <Text style={[styles.label, isFocus && { color: 'blue' }]}>
-          How do you like to workout?
+          How often do you like to workout?
         </Text>
       );
     }
@@ -37,13 +37,13 @@ const FrequencyDropdown = ({ frequency }) => {
         maxHeight={300}
         labelField="label"
         valueField="value"
-        placeholder={!isFocus ? 'How do you like to workout?' : '...'}
+        placeholder={!isFocus ? 'How often do you like to workout?' : '...'}
         searchPlaceholder="Search..."
         value={frequency}
         onFocus={() => setIsFocus(true)}
         onBlur={() => setIsFocus(false)}
         onChange={item => {
-          setValue(item.value);
+          setFrequency(item.value);
           setIsFocus(false);
         }}
         // renderLeftIcon={() => (
@@ -59,7 +59,7 @@ const FrequencyDropdown = ({ frequency }) => {
   );
 };
 
-export default FrequencyDropdown
+export default DropdownFrequency
 
 const styles = StyleSheet.create({
   container: {

@@ -2,8 +2,8 @@ import { StyleSheet, Text, View, FlatList } from 'react-native'
 import React, { useState } from 'react'
 import Checkbox from 'expo-checkbox'
 
-const CheckBoxList = () => {
-  const [checkbox, onChangeCheckbox] = useState([
+const CheckBoxList = ({ checkbox }) => {
+  const checkboxData = [
     { id: 1, name: 'prenatal', isChecked: false },
     { id: 2, name: 'postpartum', isChecked: true },
     { id: 3, name: 'managing chronic pain', isChecked: false },
@@ -11,7 +11,7 @@ const CheckBoxList = () => {
     { id: 5, name: 'undergoing top surgery (or have in the recent past)', isChecked: false },
     { id: 6, name: 'recovering from an injury', isChecked: false },
     { id: 7, name: 'losing weight for medical reasons', isChecked: false }
-  ]);
+  ];
 
   const Item = ({ name }) => {
     const [toggleCheckBoxList, setToggleCheckBoxList] = useState(false);
@@ -23,7 +23,10 @@ const CheckBoxList = () => {
         <Checkbox
           disabled={false}
           value={toggleCheckBoxList}
-          onValueChange={(newValue) => setToggleCheckBoxList(newValue)}
+          onValueChange={newValue => {
+            setToggleCheckBoxList(newValue);
+            setCheckbox(newValue.name);
+          }}
         />
         <Text
           style={styles.text}
@@ -43,7 +46,7 @@ const CheckBoxList = () => {
         style={styles.container}
       >
         <FlatList
-          data={checkbox}
+          data={checkboxData}
           renderItem={renderItem}
           keyExtractor={item => item.id}
         />

@@ -5,7 +5,7 @@ import { db } from '../firestoreDB/firestore';
 import CheckBoxList from '../components/CheckBoxList';
 import DropdownWorkout from '../components/DropdownWorkout';
 import DropdownTraining from '../components/DropdownTraining';
-import FrequencyDropdown from '../components/DropdownFrequency';
+import DropdownFrequency from '../components/DropdownFrequency';
 
 const QuizScreen = ({ navigation }) => {
 
@@ -16,9 +16,9 @@ const QuizScreen = ({ navigation }) => {
   const [phone, onChangePhone] = useState();
   const [email, onChangeEmail] = useState();
   const [additionalInfo, onChangeAdditionalInfo] = useState('');
-  const workoutState = [workout, setWorkout ] = useState('');
-  const trainingState = [training, setTraining ] = useState('');
-  const [frequency, setFrequency] = useState('');
+  const workoutState = [ workout, setWorkout ] = useState('');
+  const trainingState = [ training, setTraining ] = useState('');
+  const frequencyState = [frequency, setFrequency] = useState('');
   // const [training, onChangeTraining] = useState([
   //   { label: 'Personal Training', value: 'personal' },
   //   { label: 'Small Group Classes', value: 'group' },
@@ -32,15 +32,7 @@ const QuizScreen = ({ navigation }) => {
   //   { label: 'All the time', value: 'much' },
   // ]);
 
-  const [checkbox, onChangeCheckbox] = useState([
-    { id: 1, txt: 'prenatal', isChecked: false },
-    { id: 2, txt: 'postpartum', isChecked: false },
-    { id: 3, txt: 'managing chronic pain', isChecked: false },
-    { id: 4, txt: 'recently started hormone therapy', isChecked: false },
-    { id: 5, txt: 'undergoing top surgery (or have in the recent past)', isChecked: false },
-    { id: 6, txt: 'recovering from an injury', isChecked: false },
-    { id: 7, txt: 'losing weight for medical reasons', isChecked: false }
-  ]);
+  const checkboxState = [checkbox, setCheckbox] = useState([]);
 
   const submitForm = async ({workoutState}) => {
     console.log("workout:", workout);
@@ -53,7 +45,8 @@ const QuizScreen = ({ navigation }) => {
         // email: email,
         workout: workout,
         training: training,
-        // frequency: frequency,
+        frequency: frequency,
+        // checkbox: checkboxState,
         // message: additionalInfo
       });
       console.log("Document written with ID: ", docRef.id);
@@ -61,10 +54,6 @@ const QuizScreen = ({ navigation }) => {
       console.error("Error adding document: ", e);
     }
     navigation.goBack();
-  }
-
-  const updateWorkout = (value) => {
-    setWorkout(value);
   }
 
   return (
@@ -111,15 +100,14 @@ const QuizScreen = ({ navigation }) => {
       <View style={{ flex: 1, width: 400 }}>
         <DropdownWorkout workout={workout}/>
         <DropdownTraining training={training}/>
-        {/* <FrequencyDropdown props={frequency}/> */}
-        {/* <DropdownComponent choice={trainingPreference} /> */}
+        <DropdownFrequency frequency={frequency}/>
       </View>
       {/* <View>
       </View> */}
       <View
         style={styles.checkbox}
       >
-        <CheckBoxList />
+        <CheckBoxList checkbox={checkbox}/>
       </View>
       <View>
         <Text>Is there anything else you'd like us to know?</Text>
