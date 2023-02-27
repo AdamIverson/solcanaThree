@@ -32,9 +32,19 @@ const QuizScreen = ({ navigation }) => {
   //   { label: 'All the time', value: 'much' },
   // ]);
 
-  const checkboxState = [checkbox, setCheckbox] = useState([]);
+  const checkboxData = [
+    { id: 1, name: 'prenatal', isChecked: false },
+    { id: 2, name: 'postpartum', isChecked: true },
+    { id: 3, name: 'managing chronic pain', isChecked: false },
+    { id: 4, name: 'recently started hormone therapy', isChecked: false },
+    { id: 5, name: 'undergoing top surgery (or have in the recent past)', isChecked: false },
+    { id: 6, name: 'recovering from an injury', isChecked: false },
+    { id: 7, name: 'losing weight for medical reasons', isChecked: false }
+  ];
 
-  const submitForm = async ({workoutState}) => {
+  const checkboxState = [checkbox, setCheckbox] = useState(checkboxData);
+
+  const submitForm = async () => {
     console.log("workout:", workout);
     try {
       const docRef = await addDoc(collection(db, "contacts"), {
@@ -46,7 +56,7 @@ const QuizScreen = ({ navigation }) => {
         workout: workout,
         training: training,
         frequency: frequency,
-        // checkbox: checkboxState,
+        checkbox: checkbox,
         // message: additionalInfo
       });
       console.log("Document written with ID: ", docRef.id);
