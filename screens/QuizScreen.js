@@ -47,7 +47,8 @@ const QuizScreen = ({ navigation }) => {
   ];
 
   const checkboxState = [checkbox, setCheckbox] = useState(checkboxData);
-
+  let selected = checkbox.filter((selectedBox) => selectedBox.isChecked);
+let name = selected.map((option) => option.name)
   const submitForm = async () => {
     try {
       const docRef = await addDoc(collection(db, "contacts"), {
@@ -59,7 +60,7 @@ const QuizScreen = ({ navigation }) => {
         workout: workout,
         training: training,
         frequency: frequency,
-        checkbox: checkbox,
+        checkbox: name,
         // message: additionalInfo
       });
       console.log("Document written with ID: ", docRef.id);
