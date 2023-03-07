@@ -2,7 +2,11 @@ import { Button, StyleSheet, Text, View, TextInput, TouchableOpacity, FlatList, 
 import React, { useState } from 'react'
 import { addDoc, collection } from "firebase/firestore";
 import { db } from '../firestoreDB/firestore';
-import CheckBoxList from '../components/CheckBoxList';
+
+// yes we tried several checkboxes
+// import CheckBoxList from '../components/CheckBoxList';
+import SecondCheckbox from '../components/SecondCheckbox'
+
 import DropdownWorkout from '../components/DropdownWorkout';
 import DropdownTraining from '../components/DropdownTraining';
 import DropdownFrequency from '../components/DropdownFrequency';
@@ -32,17 +36,17 @@ const QuizScreen = ({ navigation }) => {
   //   { label: 'All the time', value: 'much' },
   // ]);
 
-  // const checkboxData = [
-  //   { id: 1, name: 'prenatal', isChecked: false },
-  //   { id: 2, name: 'postpartum', isChecked: false },
-  //   { id: 3, name: 'managing chronic pain', isChecked: false },
-  //   { id: 4, name: 'recently started hormone therapy', isChecked: false },
-  //   { id: 5, name: 'undergoing top surgery (or have in the recent past)', isChecked: false },
-  //   { id: 6, name: 'recovering from an injury', isChecked: false },
-  //   { id: 7, name: 'losing weight for medical reasons', isChecked: false }
-  // ];
+  const checkboxData = [
+    { id: 1, name: 'prenatal', isChecked: false },
+    { id: 2, name: 'postpartum', isChecked: false },
+    { id: 3, name: 'managing chronic pain', isChecked: false },
+    { id: 4, name: 'recently started hormone therapy', isChecked: false },
+    { id: 5, name: 'undergoing top surgery (or have in the recent past)', isChecked: false },
+    { id: 6, name: 'recovering from an injury', isChecked: false },
+    { id: 7, name: 'losing weight for medical reasons', isChecked: false }
+  ];
 
-  const checkboxState = [checkbox, setCheckbox] = useState();
+  const checkboxState = [checkbox, setCheckbox] = useState(checkboxData);
 
   const submitForm = async () => {
     try {
@@ -116,7 +120,8 @@ const QuizScreen = ({ navigation }) => {
       <View
         style={styles.checkbox}
       >
-        <CheckBoxList checkbox={checkbox}/>
+        <SecondCheckbox checkbox={checkbox}/>
+        {/* <CheckBoxList checkbox={checkbox}/> */}
       </View>
       <View>
         <Text>Is there anything else you'd like us to know?</Text>
