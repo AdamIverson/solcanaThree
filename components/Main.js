@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { Linking, StyleSheet, Text, View } from 'react-native'
 import React from 'react';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -11,10 +11,6 @@ import EmPowerScreen from '../screens/EmPowerScreen';
 
 const Main = ({ route }) => {
   const Tab = createBottomTabNavigator();
-
-  function phoneCall() {
-    alert('phone call time');
-  }
 
   return (
     <Tab.Navigator

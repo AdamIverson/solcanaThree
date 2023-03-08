@@ -1,24 +1,25 @@
-import { Button, StyleSheet, Text, TextInput, View, SafeAreaView, Image } from 'react-native';
+import { Button, StyleSheet, Text, TextInput, View, SafeAreaView, Image, Linking } from 'react-native';
 import { db } from '../firestoreDB/firestore';
 import { addDoc, collection } from "firebase/firestore";
 import ModalComponent from '../components/Modal';
 
 export default function HomeScreen() {
 
-  const dataPress = async () => {
-    console.log('one');
-    try {
-      const docRef = await addDoc(collection(db, "testFour"), {
-        first: "Solcana",
-        middle: "onethousand",
-        last: "Connected",
-        born: 2022
-      });
-      console.log("Document written with ID: ", docRef.id);
-    } catch (e) {
-      console.error("Error adding document: ", e);
-    }
-  }
+  // const dataPress = async () => {
+  //   console.log('one');
+  //   try {
+  //     const docRef = await addDoc(collection(db, "testFour"), {
+  //       first: "Solcana",
+  //       middle: "onethousand",
+  //       last: "Connected",
+  //       born: 2022
+  //     });
+  //     console.log("Document written with ID: ", docRef.id);
+  //   } catch (e) {
+  //     console.error("Error adding document: ", e);
+  //   }
+  // }
+
   return (
     <View style={styles.container}>
       <View
