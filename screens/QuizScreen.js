@@ -52,11 +52,11 @@ let name = selected.map((option) => option.name)
   const submitForm = async () => {
     try {
       const docRef = await addDoc(collection(db, "contacts"), {
-        // firstName: firstName,
-        // lastName: lastName,
-        // pronouns: pronouns,
-        // phone: phone,
-        // email: email,
+        firstName: firstName,
+        lastName: lastName,
+        pronouns: pronouns,
+        phone: phone,
+        email: email,
         workout: workout,
         training: training,
         frequency: frequency,
@@ -72,7 +72,7 @@ let name = selected.map((option) => option.name)
 
   return (
     <View style={styles.container}>
-      {/* <View>
+      <View>
         <Button title="go back" onPress={() => navigation.goBack()}></Button>
       </View>
       <View>
@@ -110,7 +110,7 @@ let name = selected.map((option) => option.name)
           value={email}
           onChangeText={onChangeEmail}
         />
-      </View> */}
+      </View>
       <View style={{ flex: 1, width: 400 }}>
         <DropdownWorkout workout={workout}/>
         <DropdownTraining training={training}/>
