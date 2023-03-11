@@ -4,14 +4,14 @@ import React from 'react'
 const NavEmPowerBtn = ({ navigation }) => {
   return (
     <View>
-      <Pressable 
-          title="Nav to EmPower"
-          onPress={() => navigation.push('EmPowerScreen', {
-            title: '[em]power'
-          })}
-          >
-          <Text>Nav To empower</Text>
-        </Pressable>
+      <Pressable
+        title="Nav to EmPower"
+        onPress={() => navigation.push('EmPowerScreen', {
+          title: '[em]power'
+        })}
+      >
+        <Text>Nav To empower</Text>
+      </Pressable>
     </View>
   )
 }

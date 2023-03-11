@@ -3,7 +3,8 @@ import { db } from '../firestoreDB/firestore';
 import { addDoc, collection } from "firebase/firestore";
 import ModalComponent from '../components/Modal';
 import NavEmPowerBtn from '../components/NavEmPowerBtn';
-
+import NavPTBtn from '../components/NavPTBtn';
+import NavQuizBtn from '../components/NavQuizBtn';
 export default function HomeScreen({ navigation }) {
 
   // const dataPress = async () => {
@@ -26,36 +27,17 @@ export default function HomeScreen({ navigation }) {
       <View
         style={styles.logo}
       >
-      <Image 
-        style={styles.image}
-        source={require('../assets/logo.png')}
+        <Image
+          style={styles.image}
+          source={require('../assets/logo.png')}
         />
         <NavEmPowerBtn navigation={navigation} />
-        {/* <Pressable 
-          title="Nav to EmPower"
-          onPress={() => navigation.push('EmPowerScreen', {
-            title: '[em]power'
-          })}
-          >
-          <Text>Nav To empower</Text>
-        </Pressable> */}
-        <Pressable 
-          title="Nav to Personal Training"
-          onPress={() => navigation.push('PersonalTrainingScreen', {
-            title: 'Personal Training'
-          })}
-          >
-          <Text>Nav To Personal Training</Text>
-        </Pressable>
-        <Pressable 
-          onPress={() => navigation.push('QuizScreen')}
-          >
-          <Text>Nav To Quiz</Text>
-        </Pressable>
+        <NavPTBtn navigation={navigation} />
+        <NavQuizBtn navigation={navigation} />
       </View>
-      
+
       <SafeAreaView style={styles.container}>
-      <ModalComponent />
+        <ModalComponent />
       </SafeAreaView>
     </View>
   );
