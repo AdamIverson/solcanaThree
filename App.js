@@ -17,6 +17,7 @@ import QuizScreen from './screens/QuizScreen';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import EmPowerScreen from './screens/EmPowerScreen';
+import PersonalTrainingScreen from './screens/PersonalTrainingScreen';
 
 const Stack = createNativeStackNavigator();
 // const Tab = createBottomTabNavigator();
@@ -80,6 +81,7 @@ export default function App() {
         />
         <Stack.Screen name='QuizScreen' component={QuizScreen} />
         <Stack.Screen name='EmPowerScreen' component={EmPowerScreen} />
+        <Stack.Screen name='PersonalTrainingScreen' component={PersonalTrainingScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

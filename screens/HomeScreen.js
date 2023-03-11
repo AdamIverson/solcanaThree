@@ -1,9 +1,9 @@
-import { Button, StyleSheet, Text, TextInput, View, SafeAreaView, Image, Linking } from 'react-native';
+import { StyleSheet, View, SafeAreaView, Image, Pressable, Text } from 'react-native';
 import { db } from '../firestoreDB/firestore';
 import { addDoc, collection } from "firebase/firestore";
 import ModalComponent from '../components/Modal';
 
-export default function HomeScreen() {
+export default function HomeScreen({ navigation }) {
 
   // const dataPress = async () => {
   //   console.log('one');
@@ -29,9 +29,29 @@ export default function HomeScreen() {
         style={styles.image}
         source={require('../assets/logo.png')}
         />
+        <Pressable 
+          title="Nav to Personal Training"
+          onPress={() => navigation.push('EmPowerScreen', {
+            title: '[em]power'
+          })}
+          >
+          <Text>Nav To empower</Text>
+        </Pressable>
+        <Pressable 
+          title="Nav to EmPower"
+          onPress={() => navigation.push('PersonalTrainingScreen', {
+            title: 'Personal Training'
+          })}
+          >
+          <Text>Nav To Personal Training</Text>
+        </Pressable>
+        <Pressable 
+          onPress={() => navigation.push('QuizScreen')}
+          >
+          <Text>Nav To Quiz</Text>
+        </Pressable>
       </View>
-      {/* <Text>solcana three</Text>
-      <Button title="dataPress" onPress={dataPress}></Button> */}
+      
       <SafeAreaView style={styles.container}>
       <ModalComponent />
       </SafeAreaView>
