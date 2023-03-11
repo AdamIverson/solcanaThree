@@ -4,7 +4,6 @@ import { addDoc, collection } from "firebase/firestore";
 import { db } from '../firestoreDB/firestore';
 
 // yes we tried several checkboxes
-// import CheckBoxList from '../components/CheckBoxList';
 import SecondCheckbox from '../components/SecondCheckbox'
 
 import DropdownWorkout from '../components/DropdownWorkout';

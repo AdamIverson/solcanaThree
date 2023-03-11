@@ -2,6 +2,7 @@ import { StyleSheet, View, SafeAreaView, Image, Pressable, Text } from 'react-na
 import { db } from '../firestoreDB/firestore';
 import { addDoc, collection } from "firebase/firestore";
 import ModalComponent from '../components/Modal';
+import NavEmPowerBtn from '../components/NavEmPowerBtn';
 
 export default function HomeScreen({ navigation }) {
 
@@ -29,16 +30,17 @@ export default function HomeScreen({ navigation }) {
         style={styles.image}
         source={require('../assets/logo.png')}
         />
-        <Pressable 
-          title="Nav to Personal Training"
+        <NavEmPowerBtn navigation={navigation} />
+        {/* <Pressable 
+          title="Nav to EmPower"
           onPress={() => navigation.push('EmPowerScreen', {
             title: '[em]power'
           })}
           >
           <Text>Nav To empower</Text>
-        </Pressable>
+        </Pressable> */}
         <Pressable 
-          title="Nav to EmPower"
+          title="Nav to Personal Training"
           onPress={() => navigation.push('PersonalTrainingScreen', {
             title: 'Personal Training'
           })}
