@@ -9,7 +9,7 @@ import PricingScreen from '../screens/PricingScreen';
 import ScheduleScreen from '../screens/ScheduleScreen';
 import EmPowerScreen from '../screens/EmPowerScreen';
 
-const Main = ({ route }) => {
+const Main = ({ navigation, route }) => {
   const Tab = createBottomTabNavigator();
 
   return (
@@ -40,12 +40,13 @@ const Main = ({ route }) => {
           ),
         }} />
       <Tab.Screen name="Programs" component={ProgramsScreen}
-        options={{
-          headerTintColor: '#fff',
+        options={({ navigation }) => ({
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="plus-minus-variant" color={color} size={26} />
-          ),
-        }} />
+            ),
+            headerTintColor: '#fff',
+        })}
+        />
       <Tab.Screen name="Pricing" component={PricingScreen}
         options={{
           headerTintColor: '#fff',

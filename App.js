@@ -77,7 +77,7 @@ export default function App() {
       })}
       >
         <Stack.Screen name='Main' component={Main}
-        options={({ route }) => ({ headerTitle: route.name })}
+        options={({ navigation, route }) => ({ headerTitle: route.name })}
         />
         <Stack.Screen name='QuizScreen' component={QuizScreen} />
         <Stack.Screen name='EmPowerScreen' component={EmPowerScreen} />

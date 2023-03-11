@@ -3,7 +3,8 @@ import React from 'react';
 import { db } from '../firestoreDB/firestore';
 import { collection, getDocs, getDoc, doc } from "firebase/firestore";
 import ModalComponent from '../components/Modal';
-import { A } from '@expo/html-elements'
+import { A } from '@expo/html-elements';
+import NavQuizBtn from '../components/NavQuizBtn';
 
 const PricingScreen = ({ navigation }) => {
 
@@ -35,9 +36,10 @@ const PricingScreen = ({ navigation }) => {
       <Text>We believe that the most transformational outcomes happen in small group programs. Our boutique gym requires higher-priced services than a big-box gym because we keep our classes super small, connect with each client personally, and pay our employees above average wages. Our prices reflect the cost of running a small community while supporting our staff to live sustainable lives.</Text>
       <Text>Prices range, and start at $44 per week.
         If that doesn't work for you, check out our sliding scale information below.</Text>
-         <Button title="Nav to Quiz Screen" onPress={() => navigation.push('QuizScreen', {
+         {/* <Button title="Nav to Quiz Screen" onPress={() => navigation.push('QuizScreen', {
         title: 'holy cats'
-      })}></Button>
+      })}></Button> */}
+      <NavQuizBtn navigation={navigation} />
       <Text style={styles.header}>Apply for our Sliding Scale program</Text>
       <Text>We believe that fitness should be accessible to all people. Therefore, we offer 25% of our memberships on a sliding scale price. The sliding scale application is completely on the honor-system. You don't need to prove your income to qualify, you just need to tell us what you can afford and will honor it.</Text>
       <Text>Our member base is currently 70% White, and we prioritize Black, Indigenous and People of Color in the selection process for our sliding scale. We also prioritize Trans* folks, single-income households with children, People with disabilities and other communities that are marginalized in traditional fitness spaces.</Text>
