@@ -4,11 +4,11 @@ import { addDoc, collection } from "firebase/firestore";
 import { db } from '../firestoreDB/firestore';
 
 // yes we tried several checkboxes
-import SecondCheckbox from '../components/SecondCheckbox'
+import SecondCheckbox from '../components/Form/SecondCheckbox'
 
-import DropdownWorkout from '../components/DropdownWorkout';
-import DropdownTraining from '../components/DropdownTraining';
-import DropdownFrequency from '../components/DropdownFrequency';
+import DropdownWorkout from '../components/Form/DropdownWorkout';
+import DropdownTraining from '../components/Form/DropdownTraining';
+import DropdownFrequency from '../components/Form/DropdownFrequency';
 
 const QuizScreen = ({ navigation }) => {
 

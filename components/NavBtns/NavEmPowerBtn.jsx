@@ -3,7 +3,7 @@ import React from 'react'
 
 const NavEmPowerBtn = ({ navigation }) => {
   return (
-    <View>
+    <View style={styles.btn}>
       <Pressable
         title="Nav to EmPower"
         onPress={() => navigation.push('EmPowerScreen', {
@@ -18,4 +18,9 @@ const NavEmPowerBtn = ({ navigation }) => {
 
 export default NavEmPowerBtn
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  btn: {
+    borderColor: 'red',
+    borderWidth: 5,
+  }
+})

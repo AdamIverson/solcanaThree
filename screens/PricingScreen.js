@@ -4,7 +4,7 @@ import { db } from '../firestoreDB/firestore';
 import { collection, getDocs, getDoc, doc } from "firebase/firestore";
 import ModalComponent from '../components/Modal';
 import { A } from '@expo/html-elements';
-import NavQuizBtn from '../components/NavQuizBtn';
+import NavQuizBtn from '../components/NavBtns/NavQuizBtn';
 
 const PricingScreen = ({ navigation }) => {
 

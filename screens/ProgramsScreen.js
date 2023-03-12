@@ -1,7 +1,7 @@
 import { Button, StyleSheet, Text, View, Image, SafeAreaView } from 'react-native';
 import React from 'react';
 import ModalComponent from '../components/Modal';
-import NavEmPowerBtn from '../components/NavEmPowerBtn';
+import NavEmPowerBtn from '../components/NavBtns/NavEmPowerBtn';
 const ProgramsScreen = ({ navigation }) => {
 
   return (

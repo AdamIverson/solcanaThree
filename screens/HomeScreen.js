@@ -2,9 +2,9 @@ import { StyleSheet, View, SafeAreaView, Image, Pressable, Text } from 'react-na
 import { db } from '../firestoreDB/firestore';
 import { addDoc, collection } from "firebase/firestore";
 import ModalComponent from '../components/Modal';
-import NavEmPowerBtn from '../components/NavEmPowerBtn';
-import NavPTBtn from '../components/NavPTBtn';
-import NavQuizBtn from '../components/NavQuizBtn';
+import NavEmPowerBtn from '../components/NavBtns/NavEmPowerBtn';
+import NavPTBtn from '../components/NavBtns/NavPTBtn';
+import NavQuizBtn from '../components/NavBtns/NavQuizBtn';
 export default function HomeScreen({ navigation }) {
 
   // const dataPress = async () => {
