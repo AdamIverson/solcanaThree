@@ -39,17 +39,9 @@ export default function SecondCheckbox({checkbox}) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginHorizontal: 16,
-    marginVertical: 32,
   },
   section: {
     flexDirection: 'row',
     alignItems: 'center',
-  },
-  paragraph: {
-    fontSize: 15,
-  },
-  checkbox: {
-    margin: 8,
   },
 });
