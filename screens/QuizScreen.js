@@ -19,21 +19,9 @@ const QuizScreen = ({ navigation }) => {
   const [phone, onChangePhone] = useState();
   const [email, onChangeEmail] = useState();
   const [additionalInfo, onChangeAdditionalInfo] = useState('');
-  const workoutState = [ workout, setWorkout ] = useState('');
-  const trainingState = [ training, setTraining ] = useState('');
+  const workoutState = [workout, setWorkout] = useState('');
+  const trainingState = [training, setTraining] = useState('');
   const frequencyState = [frequency, setFrequency] = useState('');
-  // const [training, onChangeTraining] = useState([
-  //   { label: 'Personal Training', value: 'personal' },
-  //   { label: 'Small Group Classes', value: 'group' },
-  //   { label: 'Mix of Both', value: 'mix' }
-  // ]);
-
-  // const [frequency, onChangeFrequency] = useState([
-  //   { label: 'Not at all', value: 'none' },
-  //   { label: 'On and off', value: 'meh' },
-  //   { label: 'Regularly', value: 'regular' },
-  //   { label: 'All the time', value: 'much' },
-  // ]);
 
   const checkboxData = [
     { id: 1, name: 'prenatal', isChecked: false },
@@ -47,7 +35,7 @@ const QuizScreen = ({ navigation }) => {
 
   const checkboxState = [checkbox, setCheckbox] = useState(checkboxData);
   let selected = checkbox.filter((selectedBox) => selectedBox.isChecked);
-let name = selected.map((option) => option.name)
+  let name = selected.map((option) => option.name)
   const submitForm = async () => {
     try {
       const docRef = await addDoc(collection(db, "contacts"), {
@@ -110,18 +98,15 @@ let name = selected.map((option) => option.name)
           onChangeText={onChangeEmail}
         />
       </View>
-      <View style={{ flex: 1, width: 400 }}>
-        <DropdownWorkout workout={workout}/>
-        <DropdownTraining training={training}/>
-        <DropdownFrequency frequency={frequency}/>
+      <View style={styles.dropdown}>
+        <DropdownWorkout workout={workout} />
+        <DropdownTraining training={training} />
+        <DropdownFrequency frequency={frequency} />
       </View>
-      {/* <View>
-      </View> */}
       <View
         style={styles.checkbox}
       >
-        <SecondCheckbox checkbox={checkbox}/>
-        {/* <CheckBoxList checkbox={checkbox}/> */}
+        <SecondCheckbox style={styles.section} checkbox={checkbox} />
       </View>
       <View>
         <Text>Is there anything else you'd like us to know?</Text>
@@ -157,22 +142,20 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   section: {
+    flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
   },
-  paragraph: {
-    fontSize: 15,
-  },
   checkbox: {
     flex: 1,
-    borderWidth: 5,
-    padding: 10,
   },
   submit: {
     marginLeft: 25,
     marginBottom: 50,
   },
   dropdown: {
+    flex: 1,
+    width: 400,
     margin: 16,
     height: 50,
     borderBottomColor: 'gray',
