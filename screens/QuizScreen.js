@@ -48,7 +48,7 @@ const QuizScreen = ({ navigation }) => {
         training: training,
         frequency: frequency,
         checkbox: name,
-        // message: additionalInfo
+        message: additionalInfo
       });
       console.log("Document written with ID: ", docRef.id);
     } catch (e) {
@@ -103,10 +103,8 @@ const QuizScreen = ({ navigation }) => {
         <DropdownTraining training={training} />
         <DropdownFrequency frequency={frequency} />
       </View>
-      <View
-        style={styles.checkbox}
-      >
-        <SecondCheckbox style={styles.section} checkbox={checkbox} />
+      <View style={styles.section}>
+        <SecondCheckbox checkbox={checkbox} />
       </View>
       <View>
         <Text>Is there anything else you'd like us to know?</Text>
@@ -120,13 +118,15 @@ const QuizScreen = ({ navigation }) => {
         ></TextInput>
       </View>
       <View>
-        <TouchableOpacity style={styles.submit}>
-          <Text
-            onPress={submitForm}
-          >
-            Submit
-          </Text>
-        </TouchableOpacity>
+        <View style={styles.submit}>
+          <TouchableOpacity>
+            <Text
+              onPress={submitForm}
+            >
+              Submit
+            </Text>
+          </TouchableOpacity>
+        </View>
       </View>
     </View>
   )
@@ -145,9 +145,6 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
-  },
-  checkbox: {
-    flex: 1,
   },
   submit: {
     marginLeft: 25,
