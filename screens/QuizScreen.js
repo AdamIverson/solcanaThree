@@ -1,4 +1,4 @@
-import { Button, StyleSheet, Text, View, TextInput, TouchableOpacity, FlatList, Pressable } from 'react-native'
+import { Button, StyleSheet, Text, View, TextInput, Pressable } from 'react-native'
 import React, { useState } from 'react'
 import { addDoc, collection } from "firebase/firestore";
 import { db } from '../firestoreDB/firestore';
@@ -119,13 +119,13 @@ const QuizScreen = ({ navigation }) => {
       </View>
       <View>
         <View style={styles.submit}>
-          <TouchableOpacity>
+          <Pressable>
             <Text
               onPress={submitForm}
             >
               Submit
             </Text>
-          </TouchableOpacity>
+          </Pressable>
         </View>
       </View>
     </View>
