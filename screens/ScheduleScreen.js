@@ -5,36 +5,38 @@ import { FlatList } from 'react-native-gesture-handler'
 
 // data sources
 const classesMF = [
-  { title: '6am', id: 1 },
-  { title: '7am', id: 2 },
-  { title: '9am', id: 3 },
-  { title: '12pm', id: 4 },
-  { title: '4:30pm', id: 5 },
-  { title: '5:30pm', id: 6 },
-  { title: '6:30pm', id: 7 },
+  { time: '6am', id: 1 },
+  { time: '7am', id: 2 },
+  { time: '9am', id: 3 },
+  { time: '12pm', id: 4 },
+  { time: '4:30pm', id: 5 },
+  { time: '5:30pm', id: 6 },
+  { time: '6:30pm', id: 7 },
 ];
 
 const classesSaturday = [
-  { title: '8am', id: 1 },
-  { title: '9am', id: 2 },
-  { title: '10am', id: 3 },
+  { time: '8am', id: 1 },
+  { time: '9am', id: 2 },
+  { time: '10am', id: 3 },
 ];
 
 const transStrength = [
-  { title: 'Tuesday 6:30pm', id: 1 },
-  { title: 'Thursday 6:30pm', id: 2 },
-  { title: 'Saturday 9:00am', id: 3 },
+  { title: 'Tuesday 6:30pm', day: 'Tuesday', time: '6:30pm', id: 1 },
+  { title: 'Thursday 6:30pm', day: 'Thursday', time: '6:30pm', id: 2 },
+  { title: 'Saturday 9:00am', day: 'Saturday', time: '9:00am', id: 3 },
 ];
 
 const bigBody = [
-  { title: 'Tuesday 5:30pm', id: 1 },
-  { title: 'Thursday 5:30pm', id: 2 },
-  { title: 'Sunday 9:30am', id: 3 },
+  { title: 'Tuesday 5:30pm', day: 'Tuesday', time: '5:30pm', id: 1 },
+  { title: 'Thursday 5:30pm', day: 'Thursday', time: '5:30pm', id: 2 },
+  { title: 'Sunday 9:30am', day: 'Sunday', time: '9:30am', id: 3 },
 ]
 
-const Item = ({ title }) => (
+const Item = ({ title, day, time }) => (
   <View style={styles.item}>
     <Text style={styles.title}>{title}</Text>
+    <Text style={styles.day}>{day}</Text>
+    <Text style={styles.time}>{time}</Text>
   </View>
 );
 
@@ -53,7 +55,7 @@ const ScheduleScreen = () => {
               <Text>Monday - Friday</Text>
               <FlatList
                 data={classesMF}
-                renderItem={({ item }) => <Item title={item.title} />}
+                renderItem={({ item }) => <Item time={item.time} />}
               />
             </View>
           </View>
@@ -62,7 +64,7 @@ const ScheduleScreen = () => {
               <Text>Saturday</Text>
               <FlatList
                 data={classesSaturday}
-                renderItem={({ item }) => <Item title={item.title} />}
+                renderItem={({ item }) => <Item time={item.time} />}
               />
             </View>
           </View>
@@ -83,7 +85,7 @@ const ScheduleScreen = () => {
               <Text>Trans Strength</Text>
               <FlatList
                 data={transStrength}
-                renderItem={({ item }) => <Item title={item.title} />}
+                renderItem={({ item }) => <Item day={item.day} time={item.time}/>}
                 keyExtractor={item => item.id}
               />
             </View>
@@ -92,7 +94,7 @@ const ScheduleScreen = () => {
                 <Text>Big Body Fitness</Text>
                 <FlatList
                   data={bigBody}
-                  renderItem={({ item }) => <Item title={item.title} />}
+                  renderItem={({ item }) => <Item day={item.day} time={item.time}/>}
                   keyExtractor={item => item.id}
                 />
               </View>
